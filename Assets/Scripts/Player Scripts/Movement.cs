@@ -5,10 +5,12 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed, gravity, maxFallSpeed, jumpHeight, jumpBoost, dashSpeed, dashCooldown, dashDuration, dashMiniBoost, coyoteTime, jumpBuffer;
+    [Range(0f, 1f)]
+    public float glideEffectiveness;
     public LayerMask layerMask;
 
     private bool isGrounded, isDashing;
-    private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD;
+    private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
     private Vector2 dashDirection;
     private Transform groundCheck;
     private CharacterController controller;
@@ -41,9 +43,20 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.Space) && moveY >= 0f && !isDashing)
+            if(Input.GetKey(KeyCode.Space) && !isDashing)
             {
-                moveY += jumpBoost * Time.deltaTime;
+                if (moveY >= 0f)
+                {
+                    moveY += jumpBoost * Time.deltaTime;
+                }
+                else if (moveY < 0f)
+                {
+                    useMaxFallSpeed = maxFallSpeed * (1f - glideEffectiveness);
+                }
+            }
+            else
+            {
+                useMaxFallSpeed = maxFallSpeed;
             }
         }
 
@@ -53,14 +66,17 @@ public class Movement : MonoBehaviour
         }
 
 
-
         if (!isDashing)
         {
             controller.Move(Vector2.up * moveY * Time.deltaTime);
             
-            if(moveY >= maxFallSpeed)
+            if(moveY >= useMaxFallSpeed)
             {
                 moveY += gravity * Time.deltaTime;
+            }
+            else
+            {
+                moveY = useMaxFallSpeed;
             }
         }
         else

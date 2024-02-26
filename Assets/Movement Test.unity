@@ -916,16 +916,10 @@ MonoBehaviour:
   dashMiniBoost: 5
   coyoteTime: 0.1
   jumpBuffer: 0.15
+  glideEffectiveness: 0.9
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  isGrounded: 0
-  isDashing: 0
-  moveX: 0
-  moveY: 0
-  dashCD: 0
-  coyoteCD: 0
-  jumpBufferCD: 0
 --- !u!1 &1274641137
 GameObject:
   m_ObjectHideFlags: 0
