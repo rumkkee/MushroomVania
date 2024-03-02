@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using UnityEngine.Animations;
 
 public class Movement : MonoBehaviour
@@ -21,22 +22,26 @@ public class Movement : MonoBehaviour
     public LayerMask layerMask;
 
     private bool isGrounded, isDashing, teleport;
+
     private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
     private Vector2 dashDirection;
     private Transform groundCheck;
     private CharacterController controller;
+
     private Camera mainCamera;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         groundCheck = transform.Find("Ground Check").transform;
+
         mainCamera = Camera.main;
     }
 
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, layerMask);
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -56,6 +61,7 @@ public class Movement : MonoBehaviour
             coyoteCD = coyoteTime;
             moveY = -1f;
 
+
             if (jumpBufferCD > 0f)
             {
                 moveY = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -63,6 +69,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
+
             if (Input.GetKey(KeyCode.Space) && !isDashing)
             {
                 if (moveY >= 0f)
@@ -90,6 +97,7 @@ public class Movement : MonoBehaviour
         {
             controller.Move(Vector2.up * moveY * Time.deltaTime);
 
+
             if (moveY >= useMaxFallSpeed)
             {
                 moveY += gravity * Time.deltaTime;
@@ -106,11 +114,6 @@ public class Movement : MonoBehaviour
                 moveY = dashMiniBoost;
             }
         }
-
-
-
-
-
 
         moveX = Input.GetAxis("Horizontal");
 
@@ -130,15 +133,18 @@ public class Movement : MonoBehaviour
             controller.Move(Vector2.right * moveX * speed * Time.deltaTime);
         }
 
+
         if (dashCD <= dashCooldown - dashDuration)
         {
             isDashing = false;
         }
 
+
         if (dashCD > 0f)
         {
             dashCD -= Time.deltaTime;
         }
+
 
         if (coyoteCD > 0f)
         {
