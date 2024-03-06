@@ -1045,6 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sporePrefab: {fileID: 8550715601775933736, guid: 3076ca0ed9982004e8126b8d7217ac9a, type: 3}
   throwForce: 4
+  sporeFlightDuration: 3
 --- !u!114 &112576533320683329
 MonoBehaviour:
   m_ObjectHideFlags: 0

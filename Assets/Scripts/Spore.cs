@@ -24,6 +24,15 @@ public class Spore : MonoBehaviour
         rb.AddForce(direction * speed, ForceMode.Impulse);
     }
 
+    public IEnumerator Lifespan(float lifeDuration)
+    {
+        yield return new WaitForSeconds(lifeDuration);
+        if(this != null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Movement player = other.gameObject.GetComponent<Movement>();
@@ -31,7 +40,7 @@ public class Spore : MonoBehaviour
         {
             //Debug.Log("Create Behavior Here!");
             OnTeleportSporeCollided(transform.position);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }  
     }
 
