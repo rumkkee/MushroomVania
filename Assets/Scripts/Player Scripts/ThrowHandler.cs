@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class ThrowHandler : MonoBehaviour
 {
 
-    public GameObject sporePrefab;
+    public Spore sporePrefab;
+    public float throwForce;
 
     private Camera mainCamera;
 
@@ -22,7 +23,12 @@ public class ThrowHandler : MonoBehaviour
 
         Vector3 throwDirection = new Vector3(clickedPos.x - transform.position.x, clickedPos.y - transform.position.y).normalized;
 
-        Debug.Log(throwDirection);
+        if(Spore.instance == null)
+        {
+            Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
+            sporeThrown.AddImpulse(throwDirection, throwForce);
+        }
+        //Debug.Log(throwDirection);
 
     }
 }

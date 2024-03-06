@@ -36,6 +36,8 @@ public class Movement : MonoBehaviour
         groundCheck = transform.Find("Ground Check").transform;
 
         mainCamera = Camera.main;
+
+        Spore.OnTeleportSporeCollided += Teleport;
     }
 
     void Update()
@@ -48,7 +50,7 @@ public class Movement : MonoBehaviour
             Vector3 mouseScreenPosition = Input.mousePosition;
             Vector3 targetPosition = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
             
-            StartCoroutine(Teleport(targetPosition, 0.1f));
+            //StartCoroutine(Teleport(targetPosition, 0.1f));
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -157,7 +159,12 @@ public class Movement : MonoBehaviour
         }
     }
 
-    IEnumerator Teleport(Vector3 targetPosition, float duration)
+    private void Teleport(Vector3 targetPosition)
+    {
+        StartCoroutine(TeleportHelper(targetPosition, 0.1f));
+    }
+
+    IEnumerator TeleportHelper(Vector3 targetPosition, float duration)
     {
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;
