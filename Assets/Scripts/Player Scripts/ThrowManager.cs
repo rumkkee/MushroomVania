@@ -9,11 +9,19 @@ public class ThrowManager : MonoBehaviour
     public float throwForce;
     public float sporeFlightDuration;
 
+    /// <summary>
+    /// The time the player must wait after a spore has been destroyed until they can throw again
+    /// </summary>
+    public float cooldownDuration;
+    private bool onCooldown;
+
     private Camera mainCamera;
 
     private void Awake()
     {
         mainCamera = Camera.main;
+        onCooldown = false;
+        Spore.OnSporeDestroyed += StartCooldown;
     }
 
     /// <summary>
@@ -26,12 +34,21 @@ public class ThrowManager : MonoBehaviour
 
         Vector3 throwDirection = new Vector3(clickedPos.x - transform.position.x, clickedPos.y - transform.position.y).normalized;
 
-        if(Spore.instance == null)
+        if(Spore.instance == null && !onCooldown)
         {
             Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
             sporeThrown.AddImpulse(throwDirection, throwForce);
             StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
         }
         //Debug.Log(throwDirection);
+    }
+
+    private void StartCooldown() => StartCoroutine(StartCooldownHelper());
+
+    private IEnumerator StartCooldownHelper()
+    {
+        onCooldown = true;
+        yield return new WaitForSeconds(cooldownDuration);
+        onCooldown = false;
     }
 }

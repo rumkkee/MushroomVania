@@ -37,21 +37,12 @@ public class Movement : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        Spore.OnTeleportSporeCollided += Teleport;
+        TeleportSpore.OnTeleportSporeCollided += Teleport;
     }
 
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, layerMask);
-
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mouseScreenPosition = Input.mousePosition;
-            Vector3 targetPosition = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
-            
-            //StartCoroutine(Teleport(targetPosition, 0.1f));
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

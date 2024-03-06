@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8431005681900061298}
   - component: {fileID: 932892661823028481}
-  - component: {fileID: 8550715601775933736}
   - component: {fileID: 7380670488302034093}
   - component: {fileID: 8430042586348062343}
+  - component: {fileID: 8550715601775933736}
   m_Layer: 0
-  m_Name: Spore
+  m_Name: Spore_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,18 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8550715601775933736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9163812337060477057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bdda1ed6813b24e9fe82629375892c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &7380670488302034093
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,3 +135,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8550715601775933736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163812337060477057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bdda1ed6813b24e9fe82629375892c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

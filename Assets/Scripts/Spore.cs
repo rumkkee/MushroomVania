@@ -5,8 +5,8 @@ using UnityEngine;
 public class Spore : MonoBehaviour
 {
 
-    public delegate void SporeCollided(Vector3 collisionPoint);
-    public static event SporeCollided OnTeleportSporeCollided;
+    public delegate void SporeCollided();
+    public static event SporeCollided OnSporeDestroyed;
 
     public static Spore instance;
 
@@ -38,10 +38,14 @@ public class Spore : MonoBehaviour
         Movement player = other.gameObject.GetComponent<Movement>();
         if(player == null)
         {
-            //Debug.Log("Create Behavior Here!");
-            OnTeleportSporeCollided(transform.position);
+            SporeCollisionEvents();
             Destroy(gameObject);
         }  
+    }
+
+    protected virtual void SporeCollisionEvents()
+    {
+            OnSporeDestroyed();
     }
 
     private void OnDestroy()
