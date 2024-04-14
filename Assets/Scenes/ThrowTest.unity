@@ -1037,9 +1037,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3674978410278467123, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 112576533320683328}
-    - targetCorrespondingSourceObject: {fileID: 3674978410278467123, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 112576533320683329}
   m_SourcePrefab: {fileID: 100100000, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
 --- !u!1 &112576533320683327 stripped
@@ -1047,22 +1044,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3674978410278467123, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
   m_PrefabInstance: {fileID: 112576533320683326}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &112576533320683328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112576533320683327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44c628e4bebbb0489ae1f1995840b35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sporePrefab: {fileID: 6170800030019777992, guid: 44ea2f715974683488559ab2d6410186, type: 3}
-  throwForce: 5.2
-  sporeFlightDuration: 3
-  cooldownDuration: 0.2
 --- !u!114 &112576533320683329
 MonoBehaviour:
   m_ObjectHideFlags: 0
