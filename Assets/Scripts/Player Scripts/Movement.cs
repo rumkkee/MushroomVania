@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.Animations;
+
 public class Movement : MonoBehaviour
 {
-    public LayerMask layerMask;
-
-    private bool isGrounded, isDashing, dashedInAir;
     private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
+    
+    private bool isGrounded, isDashing, dashedInAir;
+    
+    public LayerMask layerMask;
 
     private float maxFallSpeed = -35f,
         speed = 10f,
@@ -30,6 +33,10 @@ public class Movement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         groundCheck = transform.Find("Ground Check").transform;
+
+        mainCamera = Camera.main;
+
+        TeleportSpore.OnTeleportSporeCollided += Teleport;
     }
 
     void Update()
@@ -48,13 +55,15 @@ public class Movement : MonoBehaviour
             moveY = -1f;
             dashedInAir = false;
 
-            if(jumpBufferCD > 0f)
+
+            if (jumpBufferCD > 0f)
             {
                 moveY = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
         }
         else
         {
+
             if (Input.GetKey(KeyCode.Space) && !isDashing)
             {
                 if (moveY >= 0f)
@@ -86,8 +95,9 @@ public class Movement : MonoBehaviour
         if (!isDashing)
         {
             controller.Move(Vector2.up * moveY * Time.deltaTime);
-            
-            if(moveY >= useMaxFallSpeed)
+
+
+            if (moveY >= useMaxFallSpeed)
             {
                 moveY += gravity * Time.deltaTime;
             }
@@ -103,6 +113,7 @@ public class Movement : MonoBehaviour
                 moveY = dashMiniBoost;
             }
         }
+
 
         // Dash
         moveX = Input.GetAxis("Horizontal");
@@ -124,17 +135,20 @@ public class Movement : MonoBehaviour
             controller.Move(Vector2.right * moveX * speed * Time.deltaTime);
         }
 
-        if(dashCD <= dashCooldown - dashDuration)
+
+        if (dashCD <= dashCooldown - dashDuration)
         {
             isDashing = false;
         }
 
-        if(dashCD > 0f)
+
+        if (dashCD > 0f)
         {
             dashCD -= Time.deltaTime;
         }
 
-        if(coyoteCD > 0f)
+
+        if (coyoteCD > 0f)
         {
             coyoteCD -= Time.deltaTime;
         }
@@ -143,5 +157,25 @@ public class Movement : MonoBehaviour
         {
             jumpBufferCD -= Time.deltaTime;
         }
+    }
+
+    private void Teleport(Vector3 targetPosition)
+    {
+        StartCoroutine(TeleportHelper(targetPosition, 0.1f));
+    }
+
+    IEnumerator TeleportHelper(Vector3 targetPosition, float duration)
+    {
+        Vector3 startPosition = transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        transform.position = targetPosition;
     }
 }
