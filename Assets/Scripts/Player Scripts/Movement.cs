@@ -6,44 +6,42 @@ using UnityEngine.Animations;
 
 public class Movement : MonoBehaviour
 {
-    public float speed,
-        gravity,
-        maxFallSpeed,
-        jumpHeight,
-        jumpBoost,
-        dashSpeed,
-        dashCooldown,
-        dashDuration,
-        dashMiniBoost,
-        coyoteTime,
-        jumpBuffer;
-
-    [Range(0f, 1f)] public float glideEffectiveness;
+    private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
+    
+    private bool isGrounded, isDashing, dashedInAir;
+    
     public LayerMask layerMask;
 
-    private bool isGrounded, isDashing, teleport;
-
-    private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
+    private float maxFallSpeed = -35f,
+        speed = 10f,
+        dashSpeed = 35f,
+        dashDuration = 0.15f,
+        coyoteTime = 0.05f,
+        dashCooldown = 0.25f,
+        gravity = -90f,
+        jumpHeight = 2,
+        jumpBuffer = 0.1f,
+        dashMiniBoost = 10,
+        jumpBoost = 30,
+        glideEffectiveness = 0.9f;
+    
     private Vector2 dashDirection;
     private Transform groundCheck;
     private CharacterController controller;
-
-    private Camera mainCamera;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         groundCheck = transform.Find("Ground Check").transform;
 
-        mainCamera = Camera.main;
-
         TeleportSpore.OnTeleportSporeCollided += Teleport;
     }
 
     void Update()
     {
+        // Jump
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, layerMask);
-
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpBufferCD = jumpBuffer;
@@ -53,6 +51,7 @@ public class Movement : MonoBehaviour
         {
             coyoteCD = coyoteTime;
             moveY = -1f;
+            dashedInAir = false;
 
 
             if (jumpBufferCD > 0f)
@@ -69,23 +68,28 @@ public class Movement : MonoBehaviour
                 {
                     moveY += jumpBoost * Time.deltaTime;
                 }
-                else if (moveY < 0f)
-                {
-                    useMaxFallSpeed = maxFallSpeed * (1f - glideEffectiveness);
-                }
             }
             else
             {
                 useMaxFallSpeed = maxFallSpeed;
             }
+
+            if (Input.GetKey(KeyCode.W) && !isDashing)
+            {
+                if (moveY < 0f)
+                {
+                    useMaxFallSpeed = maxFallSpeed * (1f - glideEffectiveness);
+                }
+            }
         }
 
+        // Glide
         if (Input.GetKeyDown(KeyCode.Space) && coyoteCD >= 0f)
         {
             moveY = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-
+        // Gravity
         if (!isDashing)
         {
             controller.Move(Vector2.up * moveY * Time.deltaTime);
@@ -108,13 +112,16 @@ public class Movement : MonoBehaviour
             }
         }
 
+
+        // Dash
         moveX = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && dashCD <= 0f)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashCD <= 0f && !dashedInAir)
         {
-            isDashing = true;
-            dashCD = dashCooldown;
-            dashDirection = (Vector2.right * moveX) / Mathf.Abs(moveX);
+                isDashing = true;
+                dashCD = dashCooldown;
+                dashDirection = (Vector2.right * moveX) / Mathf.Abs(moveX);
+                dashedInAir = true;
         }
 
         if (isDashing && dashCD >= dashCooldown - dashDuration)
