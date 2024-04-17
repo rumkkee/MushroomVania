@@ -34,8 +34,6 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         groundCheck = transform.Find("Ground Check").transform;
 
-        mainCamera = Camera.main;
-
         TeleportSpore.OnTeleportSporeCollided += Teleport;
     }
 
