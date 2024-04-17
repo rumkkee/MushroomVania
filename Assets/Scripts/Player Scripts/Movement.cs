@@ -8,8 +8,9 @@ public class Movement : MonoBehaviour
 {
     private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
 
-    private bool isGrounded, isDashing, dashedInAir;
-    private bool facingRight = true;
+    private bool isGrounded, isDashing, dashedInAir,
+        jumpApexReached = false,
+        facingRight = true;
     
     public LayerMask layerMask;
 
@@ -65,9 +66,19 @@ public class Movement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space) && !isDashing)
             {
+                // During Jump
                 if (moveY >= 0f)
                 {
-                    moveY += jumpBoost * Time.deltaTime;
+                    // if still accelerating up
+                    if (!jumpApexReached)
+                    {
+                        moveY += jumpBoost * Time.deltaTime;
+                    }
+                    else
+                    {
+                        moveY = -1f;
+                    }
+                    
                 }
             }
             else
@@ -95,6 +106,7 @@ public class Movement : MonoBehaviour
         {
             controller.Move(Vector2.up * moveY * Time.deltaTime);
 
+            jumpApexReached = (controller.velocity.y <= 0f) ?  true : false;
 
             if (moveY >= useMaxFallSpeed)
             {
