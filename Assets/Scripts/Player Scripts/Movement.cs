@@ -7,8 +7,9 @@ using UnityEngine.Animations;
 public class Movement : MonoBehaviour
 {
     private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
-    
+
     private bool isGrounded, isDashing, dashedInAir;
+    private bool facingRight = true;
     
     public LayerMask layerMask;
 
@@ -116,11 +117,18 @@ public class Movement : MonoBehaviour
         // Dash
         moveX = Input.GetAxis("Horizontal");
 
+        // Saving the last direction moved
+        if(moveX != 0f)
+        {
+            facingRight = (moveX > 0f) ? true : false;
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCD <= 0f && !dashedInAir)
         {
                 isDashing = true;
                 dashCD = dashCooldown;
-                dashDirection = (Vector2.right * moveX) / Mathf.Abs(moveX);
+                Vector2 facingDirection = facingRight ? Vector2.right : Vector2.left;
+                dashDirection = facingDirection;
                 dashedInAir = true;
         }
 
