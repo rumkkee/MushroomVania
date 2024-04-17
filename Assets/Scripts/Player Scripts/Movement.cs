@@ -84,6 +84,7 @@ public class Movement : MonoBehaviour
             else
             {
                 useMaxFallSpeed = maxFallSpeed;
+                jumpApexReached = true;
             }
 
             if (Input.GetKey(KeyCode.W) && !isDashing)
@@ -175,6 +176,12 @@ public class Movement : MonoBehaviour
         {
             jumpBufferCD -= Time.deltaTime;
         }
+    }
+
+    public void OnCeilingCollision()
+    {
+        moveY = 0f;
+        jumpApexReached = true;
     }
 
     private void Teleport(Vector3 targetPosition)
