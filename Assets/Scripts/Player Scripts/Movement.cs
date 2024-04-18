@@ -28,6 +28,10 @@ public class Movement : MonoBehaviour
     private Vector2 dashDirection;
     private Transform groundCheck;
     private CharacterController controller;
+    
+    //New set up specific to wall jump
+    private bool canWallJump;
+    private Vector3 wallNormal;
 
     void Start()
     {
@@ -52,6 +56,9 @@ public class Movement : MonoBehaviour
             coyoteCD = coyoteTime;
             moveY = -1f;
             dashedInAir = false;
+            
+            //Wall Jump
+            canWallJump = false;
 
 
             if (jumpBufferCD > 0f)
@@ -72,6 +79,14 @@ public class Movement : MonoBehaviour
             else
             {
                 useMaxFallSpeed = maxFallSpeed;
+            }
+            
+            //Wall Jump
+            if (Input.GetKey(KeyCode.Space) && canWallJump)
+            {
+                
+                    moveY = Mathf.Sqrt(jumpHeight * -1f * gravity);
+                
             }
 
             if (Input.GetKey(KeyCode.W) && !isDashing)
@@ -175,5 +190,16 @@ public class Movement : MonoBehaviour
         }
         
         transform.position = targetPosition;
+    }
+    
+    //OnControllerColliderHit is called to check that the player is touching a wall and in air to wall jump
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (!isGrounded && hit.collider.CompareTag("Wall"))
+        {
+            wallNormal = hit.normal;
+            canWallJump = true;
+        }
+        Debug.Log("hitting a wall");
     }
 }
