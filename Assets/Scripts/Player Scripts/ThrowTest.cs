@@ -15,7 +15,7 @@ public class ThrowTest : MonoBehaviour
     /// </summary>
     public float cooldownDuration;
     public float turnSpeed = 300f;
-    private bool onCooldown;
+    private bool onCooldown = false;
 
     private Camera mainCamera;
     private bool cancel = false;
@@ -24,6 +24,7 @@ public class ThrowTest : MonoBehaviour
 
     private void Awake()
     {
+        //Sets up variables to be used later
         instance = this;
         mainCamera = Camera.main;
         onCooldown = false;
@@ -58,27 +59,28 @@ public class ThrowTest : MonoBehaviour
 
     private void ThrowSpore(){
         if(!cancel){
+            //These get the direction of where the mouse is for the spore to shoot will only run if it isn't canceled.
             Vector3 mouseScreenPosition = Input.mousePosition;
             Vector3 clickedPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
 
             Vector3 throwDirection = new Vector3(clickedPos.x - transform.position.x, clickedPos.y - transform.position.y).normalized;
             
-
+            //Wont shoot anything if on cooldown or you have no spore.
             if(Spore.instance == null && !onCooldown)
             {
                 Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
-                Arrow.SetActive(false);
+                Arrow.SetActive(false); // Shoots spore torwards click position.
                 sporeThrown.AddImpulse(throwDirection, throwForce);
                 StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
             }
         } else {
-            cancel = false;
+            cancel = false; // allows for shooting to be used again.
         }
         shooting = false;
     }
 
+    //Cooldown functions for shooting and function for sword to not swing when cancelling shot.
     private void StartCooldown() => StartCoroutine(StartCooldownHelper());
-
     private IEnumerator StartCooldownHelper()
     {
         onCooldown = true;
