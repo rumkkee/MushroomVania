@@ -6,7 +6,7 @@ public class SwordSwing : MonoBehaviour
 {
     public GameObject sword;//game objects for the sword to activate and switch sides if need be.
     public GameObject sideSwitch;
-    public float swingSpeed = 60f;
+    public float swingSpeed = 60f;//Sword Swing variables
     private float speed;
     public float cooldownDuration; //Cooldown for each sword swings
     private bool onCooldown = false; //Booleans to allow sword to swing or not swing
