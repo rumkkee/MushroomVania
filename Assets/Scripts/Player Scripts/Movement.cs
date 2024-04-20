@@ -30,8 +30,10 @@ public class Movement : MonoBehaviour
     private CharacterController controller;
     
     //New set up specific to wall jump
-    private bool canWallJump;
+    private bool canWallJump = false;
     private Vector3 wallNormal;
+    //wallJumpMultiplier must stay negative
+    public float wallJumpMultiplier = -0.65f;
 
     void Start()
     {
@@ -57,7 +59,7 @@ public class Movement : MonoBehaviour
             moveY = -1f;
             dashedInAir = false;
             
-            //Wall Jump
+            //Wall Jump variable
             canWallJump = false;
 
 
@@ -81,11 +83,11 @@ public class Movement : MonoBehaviour
                 useMaxFallSpeed = maxFallSpeed;
             }
             
-            //Wall Jump
+            //check if player can wall jump
             if (Input.GetKey(KeyCode.Space) && canWallJump)
             {
-                
-                    moveY = Mathf.Sqrt(jumpHeight * -1f * gravity);
+                // uses wallJumpMultiplier to adjust the height of the wall jump
+                moveY = Mathf.Sqrt(jumpHeight * wallJumpMultiplier * gravity);
                 
             }
 
@@ -192,6 +194,7 @@ public class Movement : MonoBehaviour
         transform.position = targetPosition;
     }
     
+    //Wall Jump
     //OnControllerColliderHit is called to check that the player is touching a wall and in air to wall jump
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
