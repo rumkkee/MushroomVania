@@ -7,10 +7,6 @@ public class SwordSwing : MonoBehaviour
     public GameObject sword;//game objects for the sword to activate and switch sides if need be.
     public GameObject sideSwitch;
     public float swingSpeed = 60f;
-    public float cooldownDuration;
-    private bool onCooldown = false;
-    private bool swinging = false;
-    private float targetAngle = -90f;
     private float speed;
     public float cooldownDuration; //Cooldown for each sword swings
     private bool onCooldown = false; //Booleans to allow sword to swing or not swing
@@ -23,7 +19,7 @@ public class SwordSwing : MonoBehaviour
     {
         mainCamera = Camera.main; //These lines set up mainCamera and ability to swing if not in shooting state.
         swordAvailability = ThrowTest.instance;
-        speed = swingSpeed * swingMultiplier; //These set the start position of the sword and increases the speed of the swing.
+        speed = swingSpeed * 15; //These set the start position of the sword and increases the speed of the swing.
         sword.transform.eulerAngles = new Vector3(0, 0, 90);
     }
     
