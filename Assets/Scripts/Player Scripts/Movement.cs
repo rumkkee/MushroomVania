@@ -26,13 +26,12 @@ public class Movement : MonoBehaviour
         glideEffectiveness = 0.9f;
     
     private Vector2 dashDirection;
-    private Transform groundCheck;
+    [SerializeField] private Transform groundCheck;
     private CharacterController controller;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        groundCheck = transform.Find("Ground Check").transform;
 
         TeleportSpore.OnTeleportSporeCollided += Teleport;
     }
