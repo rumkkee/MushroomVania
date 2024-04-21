@@ -7,8 +7,10 @@ using UnityEngine.Animations;
 public class Movement : MonoBehaviour
 {
     private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
-    
-    private bool isGrounded, isDashing, dashedInAir;
+
+    private bool isGrounded, isDashing, dashedInAir,
+        jumpApexReached = false,
+        facingRight = true;
     
     public LayerMask layerMask;
 
@@ -64,14 +66,25 @@ public class Movement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space) && !isDashing)
             {
+                // During Jump
                 if (moveY >= 0f)
                 {
-                    moveY += jumpBoost * Time.deltaTime;
+                    // if still accelerating up
+                    if (!jumpApexReached)
+                    {
+                        moveY += jumpBoost * Time.deltaTime;
+                    }
+                    else
+                    {
+                        moveY = -1f;
+                    }
+                    
                 }
             }
             else
             {
                 useMaxFallSpeed = maxFallSpeed;
+                jumpApexReached = true;
             }
 
             if (Input.GetKey(KeyCode.W) && !isDashing)
@@ -94,6 +107,7 @@ public class Movement : MonoBehaviour
         {
             controller.Move(Vector2.up * moveY * Time.deltaTime);
 
+            jumpApexReached = (controller.velocity.y <= 0f) ?  true : false;
 
             if (moveY >= useMaxFallSpeed)
             {
@@ -116,11 +130,18 @@ public class Movement : MonoBehaviour
         // Dash
         moveX = Input.GetAxis("Horizontal");
 
+        // Saving the last direction moved
+        if(moveX != 0f)
+        {
+            facingRight = (moveX > 0f) ? true : false;
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCD <= 0f && !dashedInAir)
         {
                 isDashing = true;
                 dashCD = dashCooldown;
-                dashDirection = (Vector2.right * moveX) / Mathf.Abs(moveX);
+                Vector2 facingDirection = facingRight ? Vector2.right : Vector2.left;
+                dashDirection = facingDirection;
                 dashedInAir = true;
         }
 
@@ -155,6 +176,12 @@ public class Movement : MonoBehaviour
         {
             jumpBufferCD -= Time.deltaTime;
         }
+    }
+
+    public void OnCeilingCollision()
+    {
+        moveY = 0f;
+        jumpApexReached = true;
     }
 
     private void Teleport(Vector3 targetPosition)
