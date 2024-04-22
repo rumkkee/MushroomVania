@@ -8,7 +8,11 @@ public class CeilingCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Ceiling Collision Occurred");
-        playerMovement.OnCeilingCollision();
+        Movement player = other.gameObject.GetComponent<Movement>();
+        if(player == null)
+        {
+            Debug.Log("Ceiling Collision Occurred");
+            playerMovement.OnCeilingCollision();
+        }
     }
 }
