@@ -11,9 +11,9 @@ public class FlyingEnemy : MonoBehaviour
         movement = GetComponent<EnemyFlyingMovement>();
     }
 
-    public void OnPlayerEntersRadius()
+    public void OnPlayerEntersRadius(Transform playerTransform)
     {
-        movement.ChangeState(movement.FollowPlayer());
+        movement.ChangeState(movement.FollowPlayer(playerTransform));
     }
 
     public void OnPlayerExitsRadius()

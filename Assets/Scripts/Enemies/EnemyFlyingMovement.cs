@@ -4,7 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class EnemyFlyingMovement : MonoBehaviour
 {
-    public GameObject target;
+    private Transform target;
     private Rigidbody rb;
 
     [SerializeField] private float chaseSpeed;
@@ -51,8 +51,9 @@ public class EnemyFlyingMovement : MonoBehaviour
         }    
     }
 
-    public IEnumerator FollowPlayer()
+    public IEnumerator FollowPlayer(Transform playerTransform)
     {
+        target = playerTransform;
         while (true)
         {
             Vector2 moveDirection = target.transform.position - transform.position;

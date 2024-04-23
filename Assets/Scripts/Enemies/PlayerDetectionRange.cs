@@ -11,7 +11,7 @@ public class PlayerDetectionRange : MonoBehaviour
         if(player != null)
         {
             FlyingEnemy enemy = GetComponentInParent<FlyingEnemy>();
-            enemy?.OnPlayerEntersRadius();
+            enemy?.OnPlayerEntersRadius(player.transform);
         }
     }
 }
