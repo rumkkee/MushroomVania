@@ -13,6 +13,11 @@ public class FlyingEnemy : MonoBehaviour
 
     public void OnPlayerEntersRadius()
     {
-        StartCoroutine(movement.FollowPlayer());
+        movement.ChangeState(movement.FollowPlayer());
+    }
+
+    public void OnPlayerExitsRadius()
+    {
+        movement.ChangeState(movement.IdleRoam());
     }
 }
