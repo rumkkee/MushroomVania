@@ -547,18 +547,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3085325484037352472, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3085325484037352472, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3085325484037352472, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -616,10 +604,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 355221547054143299, guid: 1869a2a1220d89a4fb0a86d3c215fa6d, type: 3}
-      propertyPath: m_Radius
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1315201864822464499, guid: 1869a2a1220d89a4fb0a86d3c215fa6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.18
@@ -663,14 +647,6 @@ PrefabInstance:
     - target: {fileID: 1662545567219785195, guid: 1869a2a1220d89a4fb0a86d3c215fa6d, type: 3}
       propertyPath: m_Name
       value: FlyingEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2188048647912345888, guid: 1869a2a1220d89a4fb0a86d3c215fa6d, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 979901378}
-    - target: {fileID: 2188048647912345888, guid: 1869a2a1220d89a4fb0a86d3c215fa6d, type: 3}
-      propertyPath: chaseSpeed
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -782,11 +758,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &979901378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5624147368610879211, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
-  m_PrefabInstance: {fileID: 434624359}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1105492831
 GameObject:
   m_ObjectHideFlags: 0

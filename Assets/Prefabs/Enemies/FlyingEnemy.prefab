@@ -186,7 +186,7 @@ Rigidbody:
   m_GameObject: {fileID: 1662545567219785195}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 2
+  m_Drag: 4
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -228,8 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9423d75d628744c9875d0fc7dab833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 7
-  moveSpeed: 1
+  knockbackForce: 6
+  chaseSpeed: 14
+  idleSpeed: 2
 --- !u!114 &3838628268273325919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfceda4aaa641d740b2cafffc6cd373b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 10
 --- !u!1 &8366040468258621306
 GameObject:
   m_ObjectHideFlags: 0
