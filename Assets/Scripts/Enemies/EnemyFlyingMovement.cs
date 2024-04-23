@@ -16,7 +16,7 @@ public class EnemyFlyingMovement : MonoBehaviour
     }
     private void Start()
     {  
-        StartCoroutine(FollowPlayer());  
+        //StartCoroutine(FollowPlayer());  
     }
 
     public IEnumerator FollowPlayer()

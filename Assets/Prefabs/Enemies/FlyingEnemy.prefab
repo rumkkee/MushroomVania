@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 7.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7888089974562274673
 MonoBehaviour:
@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 6947470628662613827}
   - component: {fileID: 8384509959848103709}
   - component: {fileID: 2340820481052254374}
+  - component: {fileID: 146360495563995180}
   - component: {fileID: 2188048647912345888}
   m_Layer: 0
   m_Name: FlyingEnemy
@@ -203,6 +204,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 72
   m_CollisionDetection: 0
+--- !u!114 &146360495563995180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662545567219785195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c246f45f37837054a94b8f579dc4ecbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2188048647912345888
 MonoBehaviour:
   m_ObjectHideFlags: 0
