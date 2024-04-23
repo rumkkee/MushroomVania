@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     protected Rigidbody rb;
-    [SerializeField] private float knockbackForce;
+    [SerializeField] private float knockbackForce = 6;
 
     private void Awake()
     {

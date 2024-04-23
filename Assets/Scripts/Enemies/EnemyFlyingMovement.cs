@@ -6,8 +6,8 @@ public class EnemyFlyingMovement : EnemyMovement
 {
     private Transform target;
 
-    [SerializeField] private float chaseSpeed;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float chaseSpeed = 14f;
+    [SerializeField] private float idleSpeed = 2f;
 
     private IEnumerator currentAction;
 
@@ -40,7 +40,7 @@ public class EnemyFlyingMovement : EnemyMovement
             do
             {
                 remainingDuration -= Time.fixedDeltaTime;
-                rb.AddForce(randDirection * moveSpeed, ForceMode.Force);
+                rb.AddForce(randDirection * idleSpeed, ForceMode.Force);
                 yield return new WaitForFixedUpdate();
             } while (remainingDuration > 0f);
         }    
