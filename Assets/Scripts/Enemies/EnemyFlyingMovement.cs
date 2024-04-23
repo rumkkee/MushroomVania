@@ -2,20 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-public class EnemyFlyingMovement : MonoBehaviour
+public class EnemyFlyingMovement : EnemyMovement
 {
     private Transform target;
-    private Rigidbody rb;
 
     [SerializeField] private float chaseSpeed;
     [SerializeField] private float moveSpeed;
 
     private IEnumerator currentAction;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
     private void Start()
     {
         ChangeState(IdleRoam());
