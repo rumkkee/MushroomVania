@@ -8,21 +8,24 @@ public class LivesManagement : MonoBehaviour
     public int maxLife = 3;
     public int lifeCount = 3;
     public Image[] lifeImages;
+    public delegate void playerDied();
+    public static event playerDied onRespawn; 
 
     // Start is called before the first frame update
     void Start()
     {
+        DamageFromEnemy.PlayerTakeDamage += TakeDamage;
         UpdateLifeUI();
     }
 
-    void Update()
-    {
+    // void Update()
+    // {
         //test to view when the player takes damage
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage();
-        }
-    }
+        // if (Input.GetKeyDown(KeyCode.E))
+        // {
+        //     TakeDamage();
+        // }
+    // }
 
     public void TakeDamage()
     {
@@ -35,6 +38,9 @@ public class LivesManagement : MonoBehaviour
         if (lifeCount <= 0)
         {
             // Death Menu
+            onRespawn.Invoke();
+            lifeCount = 3;
+            UpdateLifeUI();
         }
     }
 
