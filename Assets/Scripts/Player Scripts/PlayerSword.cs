@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSword : MonoBehaviour
 {
-    [SerializeField] private int damage = 2;
+    [SerializeField] private int damage = 50;
 
     private void OnTriggerEnter(Collider other)
     {
