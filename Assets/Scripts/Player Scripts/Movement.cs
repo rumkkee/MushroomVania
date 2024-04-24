@@ -59,8 +59,7 @@ public class Movement : MonoBehaviour
             moveY = -1f;
             dashedInAir = false;
             
-            //Wall Jump variable
-            canWallJump = false;
+            
 
 
             if (jumpBufferCD > 0f)
@@ -88,6 +87,8 @@ public class Movement : MonoBehaviour
             {
                 // uses wallJumpMultiplier to adjust the height of the wall jump
                 moveY = Mathf.Sqrt(jumpHeight * wallJumpMultiplier * gravity);
+                //Set canWallJump to false so we need to hit another wall to wall jump again
+                canWallJump = false;
                 
             }
 
@@ -172,6 +173,8 @@ public class Movement : MonoBehaviour
         {
             jumpBufferCD -= Time.deltaTime;
         }
+        
+        
     }
 
     private void Teleport(Vector3 targetPosition)
