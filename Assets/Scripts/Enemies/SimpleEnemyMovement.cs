@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class SimpleEnemyMovement : EnemyMovement
 {
     private Vector2 moveDirection = Vector2.right * 0.1f;
     public float speed = 10.0f;

@@ -8,7 +8,6 @@ public class DamageFromEnemy : MonoBehaviour
     public static event PlayerHit PlayerTakeDamage; 
     private bool immunity = false; 
     public float enemyImmunity = 2f;
-    public EnemyImpulse enemy;
     private Rigidbody rb;
     private float impulseScalar;
     private float impulseDuration;
@@ -82,8 +81,6 @@ public class DamageFromEnemy : MonoBehaviour
 
     private IEnumerator ImpulseRun(Vector3 knockback)
     {
-        impulseScalar = enemy.impulseScalar;                
-        impulseDuration = enemy.impulseDuration;
         rb.AddForce(knockback * impulseScalar, ForceMode.Impulse);//Hits the impulse then zeros out after desired time.
         yield return new WaitForSeconds(impulseDuration);
         rb.velocity = Vector3.zero;

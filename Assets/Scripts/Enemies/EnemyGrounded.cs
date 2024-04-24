@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGrounded : MonoBehaviour
 {
-    public EnemyMovement enemy;
+    public SimpleEnemyMovement enemy;
 
     void OnTriggerExit(Collider other)
     {

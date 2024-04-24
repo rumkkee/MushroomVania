@@ -80,8 +80,6 @@ GameObject:
   - component: {fileID: 6871491780315186648}
   - component: {fileID: 527675752301065188}
   - component: {fileID: 3501449430010166459}
-  - component: {fileID: 2495167144968872236}
-  - component: {fileID: 4583454541530764110}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -218,35 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc93aa34484c3a54b976468516924582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackForce: 6
   speed: 10
---- !u!114 &2495167144968872236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665777593451731828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a927466f08fe234b8488310444c30d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  swordDamage: 50
---- !u!114 &4583454541530764110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665777593451731828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3876cf22f3a38954eb9fb9572b04e03d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impulseDuration: 1
-  impulseScalar: 3
 --- !u!1 &1192620915759524161
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FlyingEnemy : MonoBehaviour
 {
-    private EnemyFlyingMovement movement;
+    private FlyingEnemyMovement movement;
 
     private void Awake()
     {
-        movement = GetComponent<EnemyFlyingMovement>();
+        movement = GetComponent<FlyingEnemyMovement>();
     }
 
     public void OnPlayerEntersRadius(Transform playerTransform)
