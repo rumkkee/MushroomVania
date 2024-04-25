@@ -229,7 +229,7 @@ public class Movement : MonoBehaviour
         {
             wallNormal = hit.normal;
             canWallJump = true;
+            Debug.Log("hitting a wall");
         }
-        Debug.Log("hitting a wall");
     }
 }

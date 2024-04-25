@@ -15,6 +15,7 @@ public class LivesManagement : MonoBehaviour
     void Start()
     {
         DamageFromEnemy.PlayerTakeDamage += TakeDamage;
+        DamageFromSpikes.PlayerTakeDamage += InstantDeath;
         UpdateLifeUI();
     }
 
@@ -30,6 +31,23 @@ public class LivesManagement : MonoBehaviour
     public void TakeDamage()
     {
         lifeCount--;
+        if (lifeCount < 0)
+            lifeCount = 0;
+    
+        UpdateLifeUI();
+
+        if (lifeCount <= 0)
+        {
+            // Death Menu
+            onRespawn.Invoke();
+            lifeCount = 3;
+            UpdateLifeUI();
+        }
+    }
+    
+    public void InstantDeath()
+    {
+        lifeCount -= lifeCount;
         if (lifeCount < 0)
             lifeCount = 0;
     
