@@ -31,9 +31,13 @@ public class Movement : MonoBehaviour
     
     //New set up specific to wall jump
     private bool canWallJump = false;
+    private bool isWallJumping = false;
     private Vector3 wallNormal;
+    private float wallJumpCD = 0f;
     //wallJumpMultiplier must stay negative
     public float wallJumpMultiplier = -0.65f;
+    //wallJumpDistance should stay positive
+    public float wallJumpDistance = 5.0f;
 
     void Start()
     {
@@ -59,7 +63,10 @@ public class Movement : MonoBehaviour
             moveY = -1f;
             dashedInAir = false;
             
-            
+            //Checks for wall jump
+            isWallJumping = false;
+            //resets the countdown when you land so there is no horizontal movement to the next jump
+            wallJumpCD = 0f;
 
 
             if (jumpBufferCD > 0f)
@@ -87,10 +94,29 @@ public class Movement : MonoBehaviour
             {
                 // uses wallJumpMultiplier to adjust the height of the wall jump
                 moveY = Mathf.Sqrt(jumpHeight * wallJumpMultiplier * gravity);
+                isWallJumping = true;
+                //this time it catches when the player jumps from one wall to another before the countdown resets
+                wallJumpCD = 0f;
                 //Set canWallJump to false so we need to hit another wall to wall jump again
                 canWallJump = false;
                 
             }
+
+            //if player is in wall jump, move relative to deltatime and add to the countdown
+            if (isWallJumping)
+            {
+                if (wallJumpCD < 0.5f)
+                {
+                    controller.Move(wallNormal * wallJumpDistance * Time.deltaTime);
+                    wallJumpCD += Time.deltaTime;
+                }
+                //when countdown is full exit the wall jump
+                else
+                {
+                    isWallJumping = false;
+                }
+            }
+            
 
             if (Input.GetKey(KeyCode.W) && !isDashing)
             {
@@ -203,9 +229,16 @@ public class Movement : MonoBehaviour
     {
         if (!isGrounded && hit.collider.CompareTag("Wall"))
         {
-            wallNormal = hit.normal;
+            if (isWallJumping)
+            {
+                isWallJumping = false;
+                wallJumpCD = 0f;
+                return;
+            }
+            wallNormal = hit.normal.normalized;
             canWallJump = true;
+            Debug.Log("hitting a wall");
         }
-        Debug.Log("hitting a wall");
+        
     }
 }
