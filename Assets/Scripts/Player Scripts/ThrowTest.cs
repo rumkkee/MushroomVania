@@ -9,10 +9,8 @@ public class ThrowTest : MonoBehaviour
     public Spore sporePrefab;
     public float throwForce;
     public float sporeFlightDuration;
-
-    /// <summary>
+    
     /// The time the player must wait after a spore has been destroyed until they can throw again
-    /// </summary>
     public float cooldownDuration;
     public float turnSpeed = 300f;
     private bool onCooldown = false;
