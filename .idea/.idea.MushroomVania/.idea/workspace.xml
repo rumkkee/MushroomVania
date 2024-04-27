@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="095bc295-a448-4c05-b5a4-46a2dae06a0a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spores/FireSporeItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spores/FireSporeItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spores/NormalSporeItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spores/NormalSporeItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Test Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Test Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/ThrowTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/ThrowTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SporeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SporeItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SporeSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SporeSelect.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

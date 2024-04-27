@@ -108,13 +108,13 @@ public class ThrowTest : MonoBehaviour
     public bool ShootingState(){
         return !shooting;
     }
-    public void ChangeSpore()
+    public void ChangeSpore(SporeItem sporeItem)
     {
-        if (SporeSelect.mainSpore.sporeType == SporeType.Cordyceps)
+        if (sporeItem.sporeType == SporeType.Cordyceps)
             currentSpore= cordycepsSporePrefab;
-        if (SporeSelect.mainSpore.sporeType == SporeType.Fire)
+        if (sporeItem.sporeType == SporeType.Fire)
             currentSpore = fireSporePrefab;
-        if (SporeSelect.mainSpore.sporeType == SporeType.Teleport)
+        if (sporeItem.sporeType == SporeType.Teleport)
             currentSpore = teleportSporePrefab;
     }
 }

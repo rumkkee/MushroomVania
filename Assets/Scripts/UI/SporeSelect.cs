@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SporeSelect : MonoBehaviour
 {
-    public static SporeItem mainSpore;
+    public SporeItem mainSpore;
     SporeItem leftSpore;
     SporeItem rightSpore;
     private ThrowTest throwTest;
@@ -23,6 +23,7 @@ public class SporeSelect : MonoBehaviour
 
     void Start()
     {
+        throwTest = FindObjectOfType<ThrowTest>();
         SetSpores();
         mainSporeIndex = 0;
         UpdateUI();
@@ -48,7 +49,7 @@ public class SporeSelect : MonoBehaviour
             RightSwap();
             UpdateUI();
         }
-        throwTest.ChangeSpore();
+        throwTest.ChangeSpore(mainSpore);
     }
 
     private void SetSpores()
