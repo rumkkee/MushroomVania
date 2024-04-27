@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class SporeSelect : MonoBehaviour
 {
-    SporeItem mainSpore;
+    public static SporeItem mainSpore;
     SporeItem leftSpore;
     SporeItem rightSpore;
+    private ThrowTest throwTest;
     bool isSwitching = false;
 
     public Image mainSporeSlot;
@@ -31,6 +32,7 @@ public class SporeSelect : MonoBehaviour
     {
         if(isSwitching)
             return;
+        
         if(sporesList.Count == 0 || sporesList.Count == 1)
         {
             return;
@@ -46,6 +48,7 @@ public class SporeSelect : MonoBehaviour
             RightSwap();
             UpdateUI();
         }
+        throwTest.ChangeSpore();
     }
 
     private void SetSpores()

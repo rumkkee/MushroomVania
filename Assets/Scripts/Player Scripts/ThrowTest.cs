@@ -6,7 +6,10 @@ using UnityEngine.InputSystem;
 public class ThrowTest : MonoBehaviour
 {
     public GameObject Arrow;
-    public Spore sporePrefab;
+    public Spore teleportSporePrefab;
+    public Spore fireSporePrefab;
+    public Spore cordycepsSporePrefab;
+    private Spore currentSpore;
     public float throwForce;
     public float sporeFlightDuration;
     
@@ -66,10 +69,27 @@ public class ThrowTest : MonoBehaviour
             //Wont shoot anything if on cooldown or you have no spore.
             if(Spore.instance == null && !onCooldown)
             {
-                Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
-                Arrow.SetActive(false); // Shoots spore torwards click position.
-                sporeThrown.AddImpulse(throwDirection, throwForce);
-                StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                if (currentSpore == teleportSporePrefab)
+                {
+                    Spore sporeThrown = Instantiate(teleportSporePrefab, transform.position, Quaternion.identity);
+                    Arrow.SetActive(false); // Shoots spore torwards click position.
+                    sporeThrown.AddImpulse(throwDirection, throwForce);
+                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                }
+                if (currentSpore == fireSporePrefab)
+                {
+                    Spore sporeThrown = Instantiate(fireSporePrefab, transform.position, Quaternion.identity);
+                    Arrow.SetActive(false); // Shoots spore torwards click position.
+                    sporeThrown.AddImpulse(throwDirection, throwForce);
+                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                }
+                if (currentSpore == cordycepsSporePrefab)
+                {
+                    Spore sporeThrown = Instantiate(cordycepsSporePrefab, transform.position, Quaternion.identity);
+                    Arrow.SetActive(false); // Shoots spore torwards click position.
+                    sporeThrown.AddImpulse(throwDirection, throwForce);
+                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                }
             }
         } else {
             cancel = false; // allows for shooting to be used again.
@@ -87,5 +107,14 @@ public class ThrowTest : MonoBehaviour
     }
     public bool ShootingState(){
         return !shooting;
-    } 
+    }
+    public void ChangeSpore()
+    {
+        if (SporeSelect.mainSpore.sporeType == SporeType.Cordyceps)
+            currentSpore= cordycepsSporePrefab;
+        if (SporeSelect.mainSpore.sporeType == SporeType.Fire)
+            currentSpore = fireSporePrefab;
+        if (SporeSelect.mainSpore.sporeType == SporeType.Teleport)
+            currentSpore = teleportSporePrefab;
+    }
 }
