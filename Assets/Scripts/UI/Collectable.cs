@@ -49,7 +49,7 @@ public class Collectable : MonoBehaviour
                     coinManager.AddCoin();
                 }
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

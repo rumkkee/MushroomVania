@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SporeSelect : MonoBehaviour
 {
-    SporeItem mainSpore;
+    public SporeItem mainSpore;
     SporeItem leftSpore;
     SporeItem rightSpore;
     bool isSwitching = false;
@@ -184,6 +184,7 @@ public class SporeSelect : MonoBehaviour
 
     public void OnAnimationEnd()
     {
+        //function so we can't switch 
         isSwitching = false;
     }
 }
