@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 500;
     private int currentHealth;
     public GameObject healthDrop;
+    private int secondsForFire = 5;
+    private bool onFire = false;
 
     private void Awake()
     {
@@ -29,6 +31,34 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(healthDrop, transform.position, Quaternion.identity);
         }
         Destroy(this.gameObject);
+    }
+
+    public void TakeFireDamage(int damageReceived)
+    {
+        Debug.Log("enemy hit");
+        if(!onFire)
+        {
+            onFire = true;
+            StartCoroutine(FireDamage(damageReceived));
+        }
+    }
+
+    private IEnumerator FireDamage(int damageReceived)
+    {
+        //This is just a cooldown on the time between swings when previous swing finishes.
+        currentHealth -= damageReceived;
+        if(currentHealth <= 0)
+        {
+            OnDefeat();
+        }
+        yield return new WaitForSeconds(1);
+        if(secondsForFire > 0){
+            secondsForFire--;
+            StartCoroutine(FireDamage(damageReceived));
+        } else {
+            secondsForFire = 5;
+            onFire = false;
+        }
     }
 
 }

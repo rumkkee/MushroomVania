@@ -9,6 +9,7 @@ TagManager:
   - Sword
   - Spikes
   - FrogTongue
+  - Vines
   layers:
   - Default
   - TransparentFX
