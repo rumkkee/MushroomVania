@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 500;
     private int currentHealth;
+    public GameObject healthDrop;
 
     private void Awake()
     {
@@ -24,6 +25,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnDefeat()
     {
+        if(Random.Range(1, 6) == 1){
+            Instantiate(healthDrop, transform.position, Quaternion.identity);
+        }
         Destroy(this.gameObject);
     }
 
