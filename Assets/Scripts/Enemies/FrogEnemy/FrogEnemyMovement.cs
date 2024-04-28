@@ -14,6 +14,7 @@ public class FrogEnemyMovement : MonoBehaviour
     public float currentIdleTime = 0f;
     public float tongueTimer = 1f;
     public float tongueCooldown = 2f;
+    public GameObject tongueSwitch;
     public GameObject tongue;
     private Rigidbody rb;
     private Transform playerTarget;
@@ -72,11 +73,11 @@ public class FrogEnemyMovement : MonoBehaviour
         Vector3 direction = playerTarget.position - transform.position;
         if(direction.x < 0)
         {
-            tongue.transform.eulerAngles = new Vector3(0,0,0);//Gets the location of player to rotate where the tongue will spawn.
+            tongueSwitch.transform.eulerAngles = new Vector3(0,0,0);//Gets the location of player to rotate where the tongue will spawn.
         } 
         else 
         {
-            tongue.transform.eulerAngles = new Vector3(0,0,180);
+            tongueSwitch.transform.eulerAngles = new Vector3(0,0,180);
         }
         StartCoroutine(LickedAlready());
     }

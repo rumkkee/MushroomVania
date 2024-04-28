@@ -193,7 +193,8 @@ MonoBehaviour:
   currentIdleTime: 0
   tongueTimer: 1
   tongueCooldown: 2
-  tongue: {fileID: 4773025109604746895}
+  tongueSwitch: {fileID: 4773025109604746895}
+  tongue: {fileID: 8504108033222494815}
 --- !u!114 &2074060109895677878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7071187650672728843
 Transform:
   m_ObjectHideFlags: 0
@@ -409,13 +410,14 @@ GameObject:
   - component: {fileID: 4312960173544984628}
   - component: {fileID: 1229522725970285352}
   - component: {fileID: 3454249295750700410}
+  - component: {fileID: 3484574542596681772}
   m_Layer: 0
   m_Name: Tongue
   m_TagString: FrogTongue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4312960173544984628
 Transform:
   m_ObjectHideFlags: 0
@@ -504,3 +506,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0.00000023841858, y: 0, z: 0}
+--- !u!95 &3484574542596681772
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504108033222494815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5cd0aded93d3ea340938291f94c8f9ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
