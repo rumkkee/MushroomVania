@@ -27,18 +27,25 @@ public class FrogEnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(isGrounded){
-            if(canLick && !isLicking){
+        if(isGrounded)
+        {
+            if(canLick && !isLicking)
+            {
                 isLicking = true;
-                currentIdleTime = 0;
+                currentIdleTime = 0;//If the player is in range and grounded and is not currently in the lick process it will lick.
                 LickPlayer();
-            } else {
+            } 
+            else 
+            {
                 currentIdleTime += Time.deltaTime;
                 if(currentIdleTime >= idleTime){
-                    currentIdleTime = 0;
-                    if(isIdle){
-                        IdleJump();
-                    } else {
+                    currentIdleTime = 0;//Has idle time for the frog between jumps.
+                    if(isIdle)
+                    {
+                        IdleJump();//If player not range calls IdleJump if you are it calls FollowJump
+                    } 
+                    else 
+                    {
                         FollowJump();
                     }
                 }
@@ -47,76 +54,95 @@ public class FrogEnemyMovement : MonoBehaviour
 
         Vector3 startPoint = transform.position;
         Collider col = GetComponent<Collider>();
-        float halfHeight = col.bounds.extents.y + 0.01f;
+        float halfHeight = col.bounds.extents.y + 0.01f;//Just to detect if the frog is grounded or not.
         
         RaycastHit hit;
         if (Physics.Raycast(startPoint, Vector3.down, out hit, halfHeight))
         {
             isGrounded = true;
-        } else {
+        } 
+        else 
+        {
             isGrounded = false;
         }
     }
 
-    public void LickPlayer(){
+    public void LickPlayer()
+    {
         Vector3 direction = playerTarget.position - transform.position;
-        if(direction.x < 0){
-            tongue.transform.eulerAngles = new Vector3(0,0,0);
-        } else {
+        if(direction.x < 0)
+        {
+            tongue.transform.eulerAngles = new Vector3(0,0,0);//Gets the location of player to rotate where the tongue will spawn.
+        } 
+        else 
+        {
             tongue.transform.eulerAngles = new Vector3(0,0,180);
         }
         StartCoroutine(LickedAlready());
     }
 
-    public void IdleJump(){
+    public void IdleJump()
+    {
         int rand = Random.Range(1, 3);
         int direction = 0;
-        if(rand == 1){
-            direction = 1;
-        } else {
+        if(rand == 1)
+        {
+            direction = 1;//Jumps the frog in a random direction when called.
+        }
+        else 
+        {
             direction = -1;
         }
         rb.velocity = new Vector3(jumpForceX * direction, jumpForceY, 0);
     }
 
-    public void FollowJump(){
+    public void FollowJump()
+    {
         int jumpDirection = 0;
         Vector3 direction = playerTarget.position - transform.position;
-        if(direction.x < 0){
-            jumpDirection = -1;
-        } else {
+        if(direction.x < 0)
+        {
+            jumpDirection = -1;//Jumps the frog in the direction of the player
+        } 
+        else 
+        {
             jumpDirection = 1;
         }
         rb.velocity = new Vector3(jumpForceX * jumpDirection, jumpForceY, 0);
     }
 
-    public void ChangeTarget(Transform player){
+    public void ChangeTarget(Transform player)
+    {
         isIdle = false;
-        playerTarget = player;
+        playerTarget = player;//Sets player to the target and changes it so it follows the player.
     }
 
-    public void ChangeState(){
-        isIdle = false;
+    public void ChangeState()
+    {
+        isIdle = false;//Sets it back to random jumping
     }
 
-    public void CanLick(){
-        canLick = true;
+    public void CanLick()
+    {
+        canLick = true;//Lets the frog be able to lick player
     }
 
-    public void CannotLick(){
-        canLick = false;
+    public void CannotLick()
+    {
+        canLick = false;//Frog cannot lick because player left area
     }
 
     public IEnumerator LickedAlready()
     {
         tongue.SetActive(true);
-        yield return new WaitForSeconds(tongueTimer);
+        yield return new WaitForSeconds(tongueTimer);//Sets the tongue active and then calls cooldown.
         tongue.SetActive(false);
         StartCoroutine(lickCooldown());
     }
 
-    public IEnumerator lickCooldown(){
-        yield return new WaitForSeconds(tongueCooldown);
+    public IEnumerator lickCooldown()
+    {
+        yield return new WaitForSeconds(tongueCooldown);//Cooldown for licking
         isLicking = false;
     }
 }

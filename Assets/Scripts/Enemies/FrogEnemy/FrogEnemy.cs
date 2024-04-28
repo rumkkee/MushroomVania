@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FrogEnemy : MonoBehaviour
 {
-    private FrogEnemyMovement movement;
+    private FrogEnemyMovement movement;//This script just sends the data from the Attack and Follow frog scripts into the movement.
 
     private void Awake()
     {
