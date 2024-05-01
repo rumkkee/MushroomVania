@@ -14,9 +14,9 @@ public class LivesManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //DamageFromEnemy.PlayerTakeDamage += TakeDamage;
+        DamageFromEnemy.PlayerTakeDamage += TakeDamage;
         DamageFromSpikes.PlayerTakeDamage += InstantDeath;
-        //HealthPickup.HealthUps += AddHealth;
+        HealthPickup.HealthUps += AddHealth;
         UpdateLifeUI();
     }
 

@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="095bc295-a448-4c05-b5a4-46a2dae06a0a" name="Changes" comment="" />
+    <list default="true" id="095bc295-a448-4c05-b5a4-46a2dae06a0a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game Scenes/Base Movement Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game Scenes/Base Movement Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Wall Jump Test.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Wall Jump Test.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LivesManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LivesManagement.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,9 +53,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\lynni\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\lynni\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\lynni\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\Kevin\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Kevin\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Kevin\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -104,6 +112,7 @@
       <workItem from="1713865243004" duration="17449000" />
       <workItem from="1714089939257" duration="741000" />
       <workItem from="1714455559081" duration="4130000" />
+      <workItem from="1714586466388" duration="2048000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted unecessary scenes, reformated Code in SwordSwing.cs, added folder structure to spore scripts">
       <option name="closed" value="true" />

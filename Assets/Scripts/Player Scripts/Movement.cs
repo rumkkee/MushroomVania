@@ -73,9 +73,9 @@ public class Movement : MonoBehaviour
             moveY = -1f;
             dashedInAir = false;
 
-            //Checks for wall jump
+            // Checks for wall jump
             isWallJumping = false;
-            //resets the countdown when you land so there is no horizontal movement to the next jump
+            // resets the countdown when you land so there is no horizontal movement to the next jump
             wallJumpCD = 0f;
 
             if (jumpBufferCD > 0f)
