@@ -414,6 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6066919221004179141}
   - component: {fileID: 3569090801065601063}
+  - component: {fileID: 8630273944246131130}
   m_Layer: 0
   m_Name: SporeTrajectoryRenderer
   m_TagString: Untagged
@@ -540,6 +541,20 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &8630273944246131130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200182864158078919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f09c1e1a27edf44b930506712e413c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numPoints: 10
+  timeStep: 0.1
 --- !u!1 &4378241275257164324
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,9 +841,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Arrow: {fileID: 4052508810605182407}
+  sporeTrajectoryRenderer: {fileID: 0}
   sporePrefab: {fileID: 6170800030019777992, guid: 44ea2f715974683488559ab2d6410186, type: 3}
   throwForce: 5.2
   sporeFlightDuration: 3
+  direction: {x: 0, y: 0, z: 0}
   cooldownDuration: 0.2
   turnSpeed: 300
 --- !u!114 &7320286612159595586
