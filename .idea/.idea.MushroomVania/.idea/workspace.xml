@@ -42,6 +42,7 @@
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/Spores/FireSpore.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vines.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vines.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Checkpoint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/Checkpoint.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Checkpoint.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/Checkpoint.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/FlyingEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/FlyingEnemy.prefab" afterDir="false" />
@@ -77,6 +78,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Kevin/Desktop/Programmier Stuff/MushroomVania/Assets/Prefabs/Spores/ARCADECLASSIC SDF.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Kevin/Desktop/Programmier Stuff/MushroomVania/Assets/Prefabs/Spores/ARCADECLASSIC SDF.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Kevin/Desktop/Programmier Stuff/MushroomVania/Assets/Prefabs/Spores/ARCADECLASSIC SDF.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Kevin/Desktop/Programmier Stuff/MushroomVania/Assets/Prefabs/Spores/ARCADECLASSIC SDF.asset" root0="SKIP_HIGHLIGHTING" />
@@ -171,7 +173,7 @@
       <workItem from="1713982140950" duration="320000" />
       <workItem from="1713983694434" duration="3999000" />
       <workItem from="1714001519289" duration="2774000" />
-      <workItem from="1714539737558" duration="339000" />
+      <workItem from="1714539737558" duration="858000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted unecessary scenes, reformated Code in SwordSwing.cs, added folder structure to spore scripts">
       <option name="closed" value="true" />
