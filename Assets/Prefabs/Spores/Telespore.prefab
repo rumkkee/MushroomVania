@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7380670488302034093, guid: 3076ca0ed9982004e8126b8d7217ac9a, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8431005681900061298, guid: 3076ca0ed9982004e8126b8d7217ac9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9163812337060477057, guid: 3076ca0ed9982004e8126b8d7217ac9a, type: 3}
       propertyPath: m_Name
-      value: TeleportationSpore Variant
+      value: Telespore
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8550715601775933736, guid: 3076ca0ed9982004e8126b8d7217ac9a, type: 3}
