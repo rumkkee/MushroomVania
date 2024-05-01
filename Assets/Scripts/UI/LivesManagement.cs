@@ -16,6 +16,7 @@ public class LivesManagement : MonoBehaviour
     {
         DamageFromEnemy.PlayerTakeDamage += TakeDamage;
         DamageFromSpikes.PlayerTakeDamage += InstantDeath;
+        HealthPickup.HealthUps += AddHealth;
         UpdateLifeUI();
     }
 
@@ -60,6 +61,11 @@ public class LivesManagement : MonoBehaviour
             lifeCount = 3;
             UpdateLifeUI();
         }
+    }
+
+    public void AddHealth(){
+        lifeCount++;
+        UpdateLifeUI();
     }
 
     void UpdateLifeUI()

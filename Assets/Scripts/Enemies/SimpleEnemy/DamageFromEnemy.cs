@@ -72,6 +72,13 @@ public class DamageFromEnemy : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag == "FrogTongue" && !immunity){
+            PlayerTakeDamage.Invoke();
+            StartCoroutine(DamageImmunity());
+        }
+    }
+
     private IEnumerator DamageImmunity()
     {
         immunity = true;

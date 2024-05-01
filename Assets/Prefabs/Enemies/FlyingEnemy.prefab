@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
+  healthDrop: {fileID: 7234289283504010454, guid: 1dea8146c0e91ef459eee189e128a8fc, type: 3}
 --- !u!1 &8366040468258621306
 GameObject:
   m_ObjectHideFlags: 0
