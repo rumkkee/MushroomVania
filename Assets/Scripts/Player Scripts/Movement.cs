@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.Animations;
-
 public class Movement : MonoBehaviour
 {
     private float moveX, moveY, dashCD, coyoteCD, jumpBufferCD, useMaxFallSpeed;
-
-    private bool isGrounded, isDashing, dashedInAir,
-        jumpApexReached = false,
+    
+    private bool isGrounded, isDashing, dashedInAir, jumpApexReached = false,
         facingRight = true;
     
     public LayerMask layerMask;
-
     private float maxFallSpeed = -35f,
         speed = 10f,
         dashSpeed = 35f,
@@ -30,18 +26,21 @@ public class Movement : MonoBehaviour
     private Vector2 dashDirection;
     private Transform groundCheck;
     private CharacterController controller;
-    
+
     //New set up specific to wall jump
     private bool canWallJump = false;
+    private bool isWallJumping = false;
     private Vector3 wallNormal;
+    private float wallJumpCD = 0f;
     //wallJumpMultiplier must stay negative
-    public float wallJumpMultiplier = -0.65f;
+    public float wallJumpMultiplier = 1f;
+    //wallJumpDistance should stay positive
+    public float wallJumpDistance = 5.0f;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         groundCheck = transform.Find("Ground Check").transform;
-
         TeleportSpore.OnTeleportSporeCollided += Teleport;
     }
 
@@ -50,20 +49,34 @@ public class Movement : MonoBehaviour
         // Jump
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, layerMask);
         
+        if (Input.GetKeyDown(KeyCode.Space) && canWallJump)
+        {
+            if (canWallJump)
+            {
+                // Perform wall jump
+                Jump(wallNormal);
+                canWallJump = false; // Reset wall jump ability
+            }
+            else
+            {
+                Jump(Vector3.up);
+            }
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpBufferCD = jumpBuffer;
         }
-
         if (isGrounded)
         {
             coyoteCD = coyoteTime;
             moveY = -1f;
             dashedInAir = false;
-            
-            //Wall Jump variable
-            canWallJump = false;
 
+            //Checks for wall jump
+            isWallJumping = false;
+            //resets the countdown when you land so there is no horizontal movement to the next jump
+            wallJumpCD = 0f;
 
             if (jumpBufferCD > 0f)
             {
@@ -72,36 +85,16 @@ public class Movement : MonoBehaviour
         }
         else
         {
-
             if (Input.GetKey(KeyCode.Space) && !isDashing)
             {
-                // During Jump
                 if (moveY >= 0f)
                 {
-                    // if still accelerating up
-                    if (!jumpApexReached)
-                    {
-                        moveY += jumpBoost * Time.deltaTime;
-                    }
-                    else
-                    {
-                        moveY = -1f;
-                    }
-                    
+                    moveY += jumpBoost * Time.deltaTime;
                 }
             }
             else
             {
                 useMaxFallSpeed = maxFallSpeed;
-                jumpApexReached = true;
-            }
-            
-            //check if player can wall jump
-            if (Input.GetKey(KeyCode.Space) && canWallJump)
-            {
-                // uses wallJumpMultiplier to adjust the height of the wall jump
-                moveY = Mathf.Sqrt(jumpHeight * wallJumpMultiplier * gravity);
-                
             }
 
             if (Input.GetKey(KeyCode.W) && !isDashing)
@@ -112,20 +105,17 @@ public class Movement : MonoBehaviour
                 }
             }
         }
-
+        
         // Glide
         if (Input.GetKeyDown(KeyCode.Space) && coyoteCD >= 0f)
         {
             moveY = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-
+        
         // Gravity
         if (!isDashing)
         {
             controller.Move(Vector2.up * moveY * Time.deltaTime);
-
-            jumpApexReached = (controller.velocity.y <= 0f) ?  true : false;
-
             if (moveY >= useMaxFallSpeed)
             {
                 moveY += gravity * Time.deltaTime;
@@ -142,26 +132,16 @@ public class Movement : MonoBehaviour
                 moveY = dashMiniBoost;
             }
         }
-
-
+        
         // Dash
         moveX = Input.GetAxis("Horizontal");
-
-        // Saving the last direction moved
-        if(moveX != 0f)
-        {
-            facingRight = (moveX > 0f) ? true : false;
-        }
-
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCD <= 0f && !dashedInAir)
         {
-                isDashing = true;
-                dashCD = dashCooldown;
-                Vector2 facingDirection = facingRight ? Vector2.right : Vector2.left;
-                dashDirection = facingDirection;
-                dashedInAir = true;
+            isDashing = true;
+            dashCD = dashCooldown;
+            dashDirection = (Vector2.right * moveX) / Mathf.Abs(moveX);
+            dashedInAir = true;
         }
-
         if (isDashing && dashCD >= dashCooldown - dashDuration)
         {
             controller.Move(dashDirection * dashSpeed * Time.deltaTime);
@@ -170,35 +150,42 @@ public class Movement : MonoBehaviour
         {
             controller.Move(Vector2.right * moveX * speed * Time.deltaTime);
         }
-
-
         if (dashCD <= dashCooldown - dashDuration)
         {
             isDashing = false;
         }
-
-
         if (dashCD > 0f)
         {
             dashCD -= Time.deltaTime;
         }
-
-
         if (coyoteCD > 0f)
         {
             coyoteCD -= Time.deltaTime;
         }
-
         if (jumpBufferCD > 0f)
         {
             jumpBufferCD -= Time.deltaTime;
         }
     }
-
+    
     public void OnCeilingCollision()
     {
         moveY = 0f;
         jumpApexReached = true;
+    }
+    
+    private void Jump(Vector3 jumpDirection)
+    {
+        // Get the horizontal input direction from player
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        Vector3 horizontalJumpDirection = new Vector3(horizontalInput, 0f, 0f).normalized;
+
+        // Calculate the final jump direction by combining the input direction and wall normal
+        Vector3 finalJumpDirection = (horizontalJumpDirection + jumpDirection).normalized;
+
+        // Apply jump forces
+        moveY = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        moveX = finalJumpDirection.x * Mathf.Sqrt(jumpHeight * wallJumpMultiplier * gravity);
     }
 
     private void Teleport(Vector3 targetPosition)
@@ -206,11 +193,10 @@ public class Movement : MonoBehaviour
         StartCoroutine(TeleportHelper(targetPosition, 0.1f));
     }
 
-    IEnumerator TeleportHelper(Vector3 targetPosition, float duration)
+    private IEnumerator TeleportHelper(Vector3 targetPosition, float duration)
     {
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;
-
         while (elapsedTime < duration)
         {
             transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
@@ -220,16 +206,14 @@ public class Movement : MonoBehaviour
         
         transform.position = targetPosition;
     }
-    
-    //Wall Jump
-    //OnControllerColliderHit is called to check that the player is touching a wall and in air to wall jump
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (!isGrounded && hit.collider.CompareTag("Wall"))
         {
-            wallNormal = hit.normal;
+            // Store the wall normal for wall jumping
+            wallNormal = hit.normal.normalized;
             canWallJump = true;
-            Debug.Log("hitting a wall");
         }
     }
 }
