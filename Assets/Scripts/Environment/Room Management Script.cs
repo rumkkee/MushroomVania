@@ -10,14 +10,17 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject player; 
     private GameObject currentRoom; //this is the current active room 
     private CharacterController playerCont; //player's character controller which will be deactivated then reactivated
+    public GameObject mainCam;
+    private Camera currentCam;
     
     
     // Start is called before the first frame update
     void Start()
     {
         //get access to the player's character controller  
-        playerCont = player.GetComponent<CharacterController>(); 
-        
+        playerCont = player.GetComponent<CharacterController>();
+        currentCam = mainCam.GetComponent<Camera>(); 
+        //make sure player controller is enabled if it is not 
         if (playerCont != null)
         {
             playerCont.enabled = true; // if exists, make sure it starts out as enabled 
@@ -28,7 +31,7 @@ public class NewBehaviourScript : MonoBehaviour
             return;
         }
         
-        
+        //instantiate first room
         if (rooms.Length > 0)
         {
             currentRoom = Instantiate(rooms[0], Vector3.zero, Quaternion.identity); 
@@ -46,6 +49,11 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public GameObject GetCamera()
+    {
+        return mainCam; 
     }
     
     //this method will be called when a player enters a trigger
@@ -68,6 +76,10 @@ public class NewBehaviourScript : MonoBehaviour
             //instantiate new room, set to current room, set proper player position 
             currentRoom = Instantiate(rooms[roomIndex], Vector3.zero, Quaternion.identity); 
             Debug.Log("creating room" + roomIndex);
+            
+            //currentRoom.GetComponent<>(); 
+            //GameObject childObject = prefabInstance.transform.Find("ChildName").gameObject;
+            
         }
         else
         {
@@ -79,20 +91,21 @@ public class NewBehaviourScript : MonoBehaviour
         //find the object whose position we will spawn at within the new room
         GameObject destinationObject = GameObject.Find(exitName);
         Debug.Log("destination object is" + destinationObject);
-        if (destinationObject != null)
+        if (destinationObject != null) //make sure destination object exists
         {
-            playerCont.enabled = false;
-            Vector3 playerSpawnPosition = destinationObject.transform.position;
+            playerCont.enabled = false; //disable player controller 
+            Vector3 playerSpawnPosition = destinationObject.transform.position; //same position as destination object
             player.transform.position = playerSpawnPosition; 
             Debug.Log("spawning player at " + playerSpawnPosition);
-            playerCont.enabled = true;
+            playerCont.enabled = true; //reenable 
         }
         else
         {
             Debug.LogError("Sorry bud, your destination object not found in the new room!");
         }
         
-
+        //attach camera object to backgrounds 
+        
 
 
 

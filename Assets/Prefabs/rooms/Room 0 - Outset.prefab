@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6690030282639292024}
   m_Layer: 0
-  m_Name: Room 2
+  m_Name: Room 0 - Outset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5972320352548919197}
   - {fileID: 6578631498092438169}
+  - {fileID: 5055189230278441707}
   - {fileID: 7338790993382823668}
   - {fileID: 1931540504397814913}
   m_Father: {fileID: 0}
@@ -548,7 +548,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &1466070129365277455
+--- !u!1001 &44707681742829177
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -605,8 +605,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26cd608cfb0cc3940922cd611abc8300, type: 3}
---- !u!4 &5972320352548919197 stripped
+--- !u!4 &5055189230278441707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5096234969184029842, guid: 26cd608cfb0cc3940922cd611abc8300, type: 3}
-  m_PrefabInstance: {fileID: 1466070129365277455}
+  m_PrefabInstance: {fileID: 44707681742829177}
   m_PrefabAsset: {fileID: 0}
