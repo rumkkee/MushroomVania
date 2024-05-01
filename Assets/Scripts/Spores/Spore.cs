@@ -35,8 +35,9 @@ public class Spore : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Movement player = other.gameObject.GetComponent<Movement>();
-        if(player == null)
+        if (other.isTrigger) { return; }
+
+        if(!other.CompareTag("Player"))
         {
             SporeCollisionEvents();
             Destroy(gameObject);
