@@ -40,6 +40,8 @@ public class EnemyHealth : MonoBehaviour
         {
             onFire = true;
             StartCoroutine(FireDamage(damageReceived));
+        } else {
+            secondsForFire = 5;
         }
     }
 
