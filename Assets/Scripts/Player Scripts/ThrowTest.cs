@@ -8,7 +8,6 @@ public class ThrowTest : MonoBehaviour
     public GameObject Arrow;
     public SporeTrajectoryRenderer sporeTrajectoryRenderer;
     public Spore sporePrefab;
-    public float throwForce;
     public float sporeFlightDuration;
     public Vector3 direction;
 
@@ -76,7 +75,7 @@ public class ThrowTest : MonoBehaviour
                 Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
                 //Arrow.SetActive(false); // Shoots spore torwards click position.
                 sporeTrajectoryRenderer.enabled = false;
-                sporeThrown.AddImpulse(throwDirection, throwForce);
+                sporeThrown.AddImpulse(throwDirection, sporePrefab.GetThrowSpeed());
                 StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
             }
         } else {

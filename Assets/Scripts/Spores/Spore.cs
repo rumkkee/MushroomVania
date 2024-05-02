@@ -11,6 +11,9 @@ public class Spore : MonoBehaviour
     public float customGravity;
     private Vector3 gravity;
 
+    [Range(0, 20)]
+    public float throwSpeed;
+
     private Rigidbody rb;
 
     public static Spore instance;
@@ -77,4 +80,5 @@ public class Spore : MonoBehaviour
     }
 
     public float GetCustomGravity() => customGravity;
+    public float GetThrowSpeed() => throwSpeed;
 }
