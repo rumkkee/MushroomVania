@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 6066919221004179141}
   - component: {fileID: 3569090801065601063}
   - component: {fileID: 8630273944246131130}
+  - component: {fileID: 5528378749288725912}
   m_Layer: 0
   m_Name: SporeTrajectoryRenderer
   m_TagString: Untagged
@@ -555,6 +556,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPoints: 10
   timeStep: 0.1
+--- !u!95 &5528378749288725912
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200182864158078919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 289e5cd704ec4294db7de00901ec7dae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4378241275257164324
 GameObject:
   m_ObjectHideFlags: 0
