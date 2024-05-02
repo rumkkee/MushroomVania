@@ -76,5 +76,5 @@ public class Spore : MonoBehaviour
         instance = null;
     }
 
-    public Vector3 GetCustomGravity() => gravity;
+    public float GetCustomGravity() => customGravity;
 }
