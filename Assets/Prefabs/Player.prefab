@@ -404,13 +404,13 @@ LineRenderer:
       atime0: 0
       atime1: 50655
       atime2: 59753
-      atime3: 59753
+      atime3: 0
       atime4: 0
       atime5: 0
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 3
     numCornerVertices: 0
@@ -437,7 +437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numPoints: 20
-  timeStep: 0.1
 --- !u!95 &5528378749288725912
 Animator:
   serializedVersion: 5
