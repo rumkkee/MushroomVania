@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="095bc295-a448-4c05-b5a4-46a2dae06a0a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 0 - Outset.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 0 - Outset.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/Room Management Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/Room Management Script.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/parallax scrolling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/parallax scrolling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Test Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Test Scene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
