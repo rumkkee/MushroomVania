@@ -402,22 +402,22 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
+      atime1: 50655
+      atime2: 59753
+      atime3: 59753
       atime4: 0
       atime5: 0
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 1
-    textureScale: {x: 7.2, y: 1}
+    textureScale: {x: 4, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f09c1e1a27edf44b930506712e413c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPoints: 10
+  numPoints: 20
   timeStep: 0.1
 --- !u!95 &5528378749288725912
 Animator:
