@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spore : MonoBehaviour
@@ -8,6 +7,15 @@ public class Spore : MonoBehaviour
     public delegate void SporeCollided();
     public static event SporeCollided OnSporeDestroyed;
 
+    [Range(0, -10)]
+    public float customGravity;
+    private Vector3 gravity;
+
+    [Range(0, 20)]
+    public float throwSpeed;
+
+    private Rigidbody rb;
+
     public static Spore instance;
 
     private void Awake()
@@ -15,12 +23,29 @@ public class Spore : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            rb = GetComponent<Rigidbody>();
         }
+    }
+
+    private void Start()
+    {
+        rb.useGravity = false;
+        gravity = new Vector3(0, customGravity, 0);
+    }
+
+    public void ApplyCustomGravity()
+    {
+        rb.AddForce(gravity, ForceMode.Acceleration);
+    }
+
+    public void FixedUpdate()
+    {
+        ApplyCustomGravity();
     }
 
     public void AddImpulse(Vector2 direction, float speed)
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         rb.AddForce(direction * speed, ForceMode.Impulse);
     }
 
@@ -46,11 +71,15 @@ public class Spore : MonoBehaviour
 
     protected virtual void SporeCollisionEvents()
     {
-            OnSporeDestroyed();
+        OnSporeDestroyed();
     }
+
 
     private void OnDestroy()
     {
         instance = null;
     }
+
+    public float GetCustomGravity() => customGravity;
+    public float GetThrowSpeed() => throwSpeed;
 }

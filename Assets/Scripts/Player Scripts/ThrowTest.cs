@@ -5,16 +5,15 @@ using UnityEngine.InputSystem;
 
 public class ThrowTest : MonoBehaviour
 {
-    public GameObject Arrow;
+    public SporeTrajectoryRenderer sporeTrajectoryRenderer;
     public Spore sporePrefab;
-    public float throwForce;
     public float sporeFlightDuration;
+    public Vector3 direction;
 
     /// <summary>
     /// The time the player must wait after a spore has been destroyed until they can throw again
     /// </summary>
     public float cooldownDuration;
-    public float turnSpeed = 300f;
     private bool onCooldown = false;
 
     private Camera mainCamera;
@@ -31,28 +30,30 @@ public class ThrowTest : MonoBehaviour
         Spore.OnSporeDestroyed += StartCooldown;
     }
 
+    private void Start()
+    {
+        sporeTrajectoryRenderer.enabled = false;
+    }
+
     void Update()
     {
         Vector3 mouseScreenPosition = Input.mousePosition;
         Vector3 clickedPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
             
-        Vector3 direction = clickedPos - Arrow.transform.position;
+        direction = clickedPos - this.transform.position;
         direction = new Vector3(-direction.y, direction.x, 0);
-
-        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, direction);
-        Arrow.transform.rotation = Quaternion.Lerp(Arrow.transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
 
         if(Input.GetMouseButton(1) && !cancel){
             shooting = true;
             if(Input.GetMouseButtonDown(0)){
-                Arrow.SetActive(false);
+                sporeTrajectoryRenderer.enabled = false;
                 cancel = true;
                 return;
             }
-            Arrow.SetActive(true);
+            sporeTrajectoryRenderer.enabled = true;
         } 
         if(Input.GetMouseButtonUp(1)){
-            Arrow.SetActive(false);
+            sporeTrajectoryRenderer.enabled = false;
             ThrowSpore();
         }
     }
@@ -69,8 +70,8 @@ public class ThrowTest : MonoBehaviour
             if(Spore.instance == null && !onCooldown)
             {
                 Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
-                Arrow.SetActive(false); // Shoots spore torwards click position.
-                sporeThrown.AddImpulse(throwDirection, throwForce);
+                sporeTrajectoryRenderer.enabled = false;
+                sporeThrown.AddImpulse(throwDirection, sporePrefab.GetThrowSpeed());
                 StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
             }
         } else {
