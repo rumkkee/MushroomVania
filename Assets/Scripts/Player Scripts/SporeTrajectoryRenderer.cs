@@ -8,7 +8,7 @@ public class SporeTrajectoryRenderer : MonoBehaviour
     private ThrowTest throwTest;
 
     public int numPoints = 20;
-    public float timeStep = 0.1f;
+    private float timeStep = 0.1f;
 
     private void Awake()
     {

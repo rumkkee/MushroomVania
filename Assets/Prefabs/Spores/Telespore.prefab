@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba89618b4f125a6418d0046718fa2b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customGravity: -3.5
+  customGravity: -6
+  throwSpeed: 6
 --- !u!4 &5303589394541788410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8431005681900061298, guid: 3076ca0ed9982004e8126b8d7217ac9a, type: 3}
