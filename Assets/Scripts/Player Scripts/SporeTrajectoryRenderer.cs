@@ -7,7 +7,7 @@ public class SporeTrajectoryRenderer : MonoBehaviour
     private LineRenderer lineRenderer;
     private ThrowTest throwTest;
 
-    public int numPoints = 10;
+    public int numPoints = 20;
     public float timeStep = 0.1f;
 
     private void Awake()
@@ -26,7 +26,6 @@ public class SporeTrajectoryRenderer : MonoBehaviour
         // access the throw direction and force
         float customGravity = throwTest.sporePrefab.GetCustomGravity();
         Vector3 gravity = new Vector3(0, customGravity, 0);
-        Debug.Log(customGravity);
         float throwForce = throwTest.sporePrefab.GetThrowSpeed();
         Vector3 direction = throwTest.direction.normalized;
         direction = new Vector3(direction.y, -direction.x, 0);
