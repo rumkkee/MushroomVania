@@ -30,6 +30,11 @@ public class ThrowTest : MonoBehaviour
         Spore.OnSporeDestroyed += StartCooldown;
     }
 
+    private void Start()
+    {
+        sporeTrajectoryRenderer.enabled = false;
+    }
+
     void Update()
     {
         Vector3 mouseScreenPosition = Input.mousePosition;
