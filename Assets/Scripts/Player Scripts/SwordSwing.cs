@@ -14,6 +14,7 @@ public class SwordSwing : MonoBehaviour
     private float targetAngle = -90f; //Final angle for sword.
     private Camera mainCamera; 
     ThrowTest swordAvailability;
+    private bool isGrounded;
     
     void Start()
     {
@@ -31,8 +32,20 @@ public class SwordSwing : MonoBehaviour
             Vector3 mouseScreenPosition = Input.mousePosition;
             Vector3 clickedPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
             Vector3 throwDirection = new Vector3(clickedPos.x - transform.position.x, clickedPos.y - transform.position.y).normalized;
+
+            // Debug.LogError(throwDirection.y);
             
-            if(throwDirection.x < 0)
+            if(throwDirection.y > .9)
+            {
+                sideSwitch.transform.eulerAngles = new Vector3(0,0,106);
+                sword.transform.eulerAngles = new Vector3(0,0,-40);
+            }
+            else if(throwDirection.y < -.9 && !isGrounded)
+            {
+                sideSwitch.transform.eulerAngles = new Vector3(0,0,-60);
+                sword.transform.eulerAngles = new Vector3(0,0,-30);
+            }
+            else if(throwDirection.x < 0)
             {
                 sideSwitch.transform.eulerAngles = new Vector3(0,-180,0);
                 sword.transform.eulerAngles = new Vector3(0, -180, 90);
@@ -48,28 +61,41 @@ public class SwordSwing : MonoBehaviour
             swinging = true;
             StartCoroutine(Swing());
         }
+
+        Vector3 startPoint = transform.position;
+        Collider col = GetComponent<Collider>();
+        float halfHeight = col.bounds.extents.y + 0.1f;
+        
+        RaycastHit hit;
+        if (Physics.Raycast(startPoint, Vector3.down, out hit, halfHeight))
+        {
+            isGrounded = true;
+        } else {
+            isGrounded = false;
+        }
     }
 
     private IEnumerator Swing()
     {
         //This gets the current angle of the sword and makes it so it doesn't spin the wrong way.
-        float currentAngle = sword.transform.eulerAngles.z;
-        currentAngle = (currentAngle > 180) ? currentAngle - 360 : currentAngle;
+        // float currentAngle = sword.transform.eulerAngles.z;
+        // currentAngle = (currentAngle > 180) ? currentAngle - 360 : currentAngle;
 
-        while (currentAngle > targetAngle)
-        {
-            float step = speed * Time.deltaTime;
-            sword.transform.Rotate(0, 0, -step);
-            currentAngle -= step;
-            yield return null;
+        // while (currentAngle > targetAngle)
+        // {
+        //     float step = speed * Time.deltaTime;
+        //     sword.transform.Rotate(0, 0, -step);
+        //     currentAngle -= step;
+        //     yield return null;
 
-            //This gets the current angle of the sword and makes it so it doesn't spin the wrong way.
-            currentAngle = sword.transform.eulerAngles.z;
-            currentAngle = (currentAngle > 180) ? currentAngle - 360 : currentAngle;
-        }
+        //     //This gets the current angle of the sword and makes it so it doesn't spin the wrong way.
+        //     currentAngle = sword.transform.eulerAngles.z;
+        //     currentAngle = (currentAngle > 180) ? currentAngle - 360 : currentAngle;
+        // }
 
-        //sets the sword in the right original position and deactivates it. Calls the cooldown function for sword swing.
-        sword.transform.eulerAngles = new Vector3(0, 0, 90);
+        // //sets the sword in the right original position and deactivates it. Calls the cooldown function for sword swing.
+        // sword.transform.eulerAngles = new Vector3(0, 0, 90);
+        yield return new WaitForSeconds(.15f);
         sword.SetActive(false);
         swinging = false;
         StartCoroutine(SwordCooldown());
