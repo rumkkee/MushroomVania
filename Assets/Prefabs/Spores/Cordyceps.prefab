@@ -82,3 +82,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ba0b719b532844e82b3f69bc24f503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customGravity: -4
+  throwSpeed: 3

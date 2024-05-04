@@ -1251,6 +1251,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: throwForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: fireSporePrefab
+      value: 
+      objectReference: {fileID: 517387287640010256, guid: 3d8428b236aee36439858c8f0ac16201, type: 3}
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: teleportSporePrefab
+      value: 
+      objectReference: {fileID: 6170800030019777992, guid: 44ea2f715974683488559ab2d6410186, type: 3}
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: cordycepsSporePrefab
+      value: 
+      objectReference: {fileID: 4104357072703201290, guid: b8dd7e2399295cd41bedd470d3442ebb, type: 3}
     - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

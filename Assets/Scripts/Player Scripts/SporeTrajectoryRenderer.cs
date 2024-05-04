@@ -24,9 +24,9 @@ public class SporeTrajectoryRenderer : MonoBehaviour
     void Update()
     {
         // accessing the gravity, throwSpeed, and thrown direction
-        float customGravity = throwTest.sporePrefab.GetCustomGravity();
+        float customGravity = throwTest.currentSpore.GetCustomGravity();
         Vector3 gravity = new Vector3(0, customGravity, 0);
-        float throwForce = throwTest.sporePrefab.GetThrowSpeed();
+        float throwForce = throwTest.currentSpore.GetThrowSpeed();
         Vector3 direction = throwTest.direction.normalized;
         direction = new Vector3(direction.y, -direction.x, 0);
 
