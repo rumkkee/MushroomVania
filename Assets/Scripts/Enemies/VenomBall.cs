@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class VenomBall : MonoBehaviour
 {
+    [SerializeField] private float timeBeforeSelfDestruct = 3f;
+
     private void Start()
     {
-        Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, timeBeforeSelfDestruct);
     }
 
     public void SetVelocity(Vector2 velocity)
