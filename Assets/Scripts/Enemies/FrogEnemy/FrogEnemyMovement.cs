@@ -19,6 +19,8 @@ public class FrogEnemyMovement : MonoBehaviour
     private Rigidbody rb;
     private Transform playerTarget;
     private bool canLick = false;
+    private bool groundedLeft = false;
+    private bool groundedRight = false;
 
     
     void Start()
@@ -28,7 +30,7 @@ public class FrogEnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(isGrounded)
+        if(isGrounded || groundedLeft || groundedRight)
         {
             if(canLick && !isLicking)
             {
@@ -56,6 +58,8 @@ public class FrogEnemyMovement : MonoBehaviour
         Vector3 startPoint = transform.position;
         Collider col = GetComponent<Collider>();
         float halfHeight = col.bounds.extents.y + 0.01f;//Just to detect if the frog is grounded or not.
+        Vector3 leftStart = new Vector3(startPoint.x-col.bounds.extents.x, startPoint.y, startPoint.z);
+        Vector3 rightStart = new Vector3(startPoint.x+col.bounds.extents.x, startPoint.y, startPoint.z);
         
         RaycastHit hit;
         if (Physics.Raycast(startPoint, Vector3.down, out hit, halfHeight))
@@ -65,6 +69,24 @@ public class FrogEnemyMovement : MonoBehaviour
         else 
         {
             isGrounded = false;
+        }
+
+        if (Physics.Raycast(leftStart, Vector3.down, out hit, halfHeight))
+        {
+            groundedLeft = true;
+        } 
+        else 
+        {
+            groundedLeft = false;
+        }
+
+        if (Physics.Raycast(rightStart, Vector3.down, out hit, halfHeight))
+        {
+            groundedRight = true;
+        } 
+        else 
+        {
+            groundedRight = false;
         }
     }
 
