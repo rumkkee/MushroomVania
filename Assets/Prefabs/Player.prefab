@@ -467,6 +467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4033402531792502445}
+  - component: {fileID: 8320146081946908418}
   m_Layer: 0
   m_Name: SwordRotate
   m_TagString: Sword
@@ -491,6 +492,27 @@ Transform:
   - {fileID: 6843371189673624223}
   m_Father: {fileID: 211867980831590441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!95 &8320146081946908418
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378241275257164324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a767fbc3dd982241bc613f5c56d9bfd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4527705544955046136
 GameObject:
   m_ObjectHideFlags: 0
