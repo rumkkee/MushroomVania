@@ -17,6 +17,7 @@ public class LivesManagement : MonoBehaviour
         DamageFromEnemy.PlayerTakeDamage += TakeDamage;
         DamageFromSpikes.PlayerTakeDamage += InstantDeath;
         HealthPickup.HealthUps += AddHealth;
+        WebMovement.PlayerTakeDamage += TakeDamage;
         UpdateLifeUI();
     }
 
