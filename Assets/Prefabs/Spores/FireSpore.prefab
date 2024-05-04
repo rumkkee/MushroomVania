@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 19117253413427305}
   - component: {fileID: 7407367643520408011}
   - component: {fileID: 2865765328584679523}
-  - component: {fileID: 517387287640010256}
   - component: {fileID: 8287589488609483072}
+  - component: {fileID: 1953636093568957729}
   m_Layer: 0
   m_Name: FireSpore
   m_TagString: Untagged
@@ -136,20 +136,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &517387287640010256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7223047546996593592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bdda1ed6813b24e9fe82629375892c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customGravity: 0
-  throwSpeed: 5
 --- !u!114 &8287589488609483072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +149,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+--- !u!114 &1953636093568957729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223047546996593592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bdda1ed6813b24e9fe82629375892c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customGravity: 0
+  throwSpeed: 5

@@ -1251,6 +1251,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: sporePrefab
+      value: 
+      objectReference: {fileID: 1953636093568957729, guid: 3d8428b236aee36439858c8f0ac16201, type: 3}
     - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1719,6 +1723,10 @@ PrefabInstance:
     - target: {fileID: 3214914300997085961, guid: 7a0490eaf893918418fac18e2cc792c8, type: 3}
       propertyPath: m_Name
       value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214914300997085961, guid: 7a0490eaf893918418fac18e2cc792c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4103615894898761155, guid: 7a0490eaf893918418fac18e2cc792c8, type: 3}
       propertyPath: webSpeed

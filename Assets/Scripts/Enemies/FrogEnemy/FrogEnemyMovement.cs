@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FrogEnemyMovement : MonoBehaviour
+public class FrogEnemyMovement : EnemyMovement
 {
     // public bool facingRight = false;
     public bool isGrounded = false;

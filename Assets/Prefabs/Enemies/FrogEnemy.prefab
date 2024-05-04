@@ -79,7 +79,6 @@ GameObject:
   - component: {fileID: 6882699601781756919}
   - component: {fileID: 2662311637170855484}
   - component: {fileID: 2074060109895677878}
-  - component: {fileID: 8228609078654747276}
   - component: {fileID: 7717583038600055133}
   - component: {fileID: 7197118676336360435}
   m_Layer: 0
@@ -184,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2911a142b06ceb45bd94d3c93e1acd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackForce: 6
   isGrounded: 0
   isLicking: 0
   isIdle: 1
@@ -207,19 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65505d5bb6442a64488e5c28d5d56671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8228609078654747276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4226851019949688136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f6dbe8c14dff314a9cfd28d13ff1a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: 6
 --- !u!65 &7717583038600055133
 BoxCollider:
   m_ObjectHideFlags: 0
