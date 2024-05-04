@@ -8,6 +8,7 @@ public class SporeSelect : MonoBehaviour
     public SporeItem mainSpore;
     SporeItem leftSpore;
     SporeItem rightSpore;
+    private ThrowTest throwTest;
     bool isSwitching = false;
 
     public Image mainSporeSlot;
@@ -22,6 +23,7 @@ public class SporeSelect : MonoBehaviour
 
     void Start()
     {
+        throwTest = FindObjectOfType<ThrowTest>();
         SetSpores();
         mainSporeIndex = 0;
         UpdateUI();
@@ -31,6 +33,7 @@ public class SporeSelect : MonoBehaviour
     {
         if(isSwitching)
             return;
+        
         if(sporesList.Count == 0 || sporesList.Count == 1)
         {
             return;
@@ -46,6 +49,7 @@ public class SporeSelect : MonoBehaviour
             RightSwap();
             UpdateUI();
         }
+        throwTest.ChangeSpore(mainSpore);
     }
 
     private void SetSpores()

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public enum SporeType
 {
-    Normal,
-    Ice,
+    Cordyceps,
     Fire,
     Teleport
 }
