@@ -19,7 +19,6 @@ public class VenomAttackManager : MonoBehaviour
         float rotationDegrees = 30f;
         Vector3 rotationAxis = Vector3.forward;
 
-        Vector3 rotatedVector = Quaternion.AngleAxis(rotationDegrees, rotationAxis) * throwDirection;
         VenomBall venomBall;
         venomBall = Instantiate(venomBallPrefab, transform.position, Quaternion.identity);
         venomBall.SetVelocity(throwDirection * throwSpeed);
@@ -28,7 +27,7 @@ public class VenomAttackManager : MonoBehaviour
         {
             for(int i = 1; i < 3; i++)
             {
-                rotatedVector = Quaternion.AngleAxis(rotationDegrees * i, rotationAxis) * throwDirection;
+                Vector3 rotatedVector = Quaternion.AngleAxis(rotationDegrees * i, rotationAxis) * throwDirection;
                 venomBall = Instantiate(venomBallPrefab, transform.position, Quaternion.identity);
                 venomBall.SetVelocity(rotatedVector * throwSpeed);
             }
