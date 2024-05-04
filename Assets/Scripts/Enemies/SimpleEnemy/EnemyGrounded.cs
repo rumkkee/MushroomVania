@@ -8,7 +8,8 @@ public class EnemyGrounded : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Sword" && other.gameObject.tag == "Enemy")
+        if (other.isTrigger) { return; }
+        if(other.gameObject.tag == "Sword" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Vines")
         {
             return; //Checks if the enemy is going to fall of the ground if it keeps going.
         }
