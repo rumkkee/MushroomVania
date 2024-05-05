@@ -232,6 +232,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: fireSporePrefab
+      value: 
+      objectReference: {fileID: 4104357072703201290, guid: f279568d208b02c4c8d6442372ffdbaa, type: 3}
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: teleportSporePrefab
+      value: 
+      objectReference: {fileID: 6170800030019777992, guid: 44ea2f715974683488559ab2d6410186, type: 3}
+    - target: {fileID: 565586638220443003, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: cordycepsSporePrefab
+      value: 
+      objectReference: {fileID: 4104357072703201290, guid: b8dd7e2399295cd41bedd470d3442ebb, type: 3}
     - target: {fileID: 3085325484037352472, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -287,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 5624147368610879211, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185719849261634161, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

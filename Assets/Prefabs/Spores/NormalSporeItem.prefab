@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sporeSprite: {fileID: 21300000, guid: 741ab30eb2549084f9e510f9017fdf23, type: 3}
   sporePrefab: {fileID: 0}
-  sporeType: 2
+  sporeType: 0
   SelectSound: {fileID: 0}

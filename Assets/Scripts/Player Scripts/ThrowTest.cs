@@ -5,14 +5,18 @@ using UnityEngine.InputSystem;
 
 public class ThrowTest : MonoBehaviour
 {
+    public Spore teleportSporePrefab;
+    public Spore fireSporePrefab;
+    public Spore cordycepsSporePrefab;
+    public Spore currentSpore;
     public SporeTrajectoryRenderer sporeTrajectoryRenderer;
-    public Spore sporePrefab;
-    public float sporeFlightDuration;
+
     public Vector3 direction;
 
-    /// <summary>
+    public float throwForce;
+    public float sporeFlightDuration;
+    
     /// The time the player must wait after a spore has been destroyed until they can throw again
-    /// </summary>
     public float cooldownDuration;
     private bool onCooldown = false;
 
@@ -39,20 +43,23 @@ public class ThrowTest : MonoBehaviour
     {
         Vector3 mouseScreenPosition = Input.mousePosition;
         Vector3 clickedPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
-            
+
         direction = clickedPos - this.transform.position;
         direction = new Vector3(-direction.y, direction.x, 0);
 
-        if(Input.GetMouseButton(1) && !cancel){
+        if (Input.GetMouseButton(1) && !cancel)
+        {
             shooting = true;
-            if(Input.GetMouseButtonDown(0)){
+            if (Input.GetMouseButtonDown(0))
+            {
                 sporeTrajectoryRenderer.enabled = false;
                 cancel = true;
                 return;
             }
             sporeTrajectoryRenderer.enabled = true;
-        } 
-        if(Input.GetMouseButtonUp(1)){
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
             sporeTrajectoryRenderer.enabled = false;
             ThrowSpore();
         }
@@ -69,10 +76,27 @@ public class ThrowTest : MonoBehaviour
             //Wont shoot anything if on cooldown or you have no spore.
             if(Spore.instance == null && !onCooldown)
             {
-                Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
-                sporeTrajectoryRenderer.enabled = false;
-                sporeThrown.AddImpulse(throwDirection, sporePrefab.GetThrowSpeed());
-                StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                if (currentSpore == teleportSporePrefab)
+                {
+                    Spore sporeThrown = Instantiate(teleportSporePrefab, transform.position, Quaternion.identity);
+                    sporeTrajectoryRenderer.enabled = false;
+                    sporeThrown.AddImpulse(throwDirection, teleportSporePrefab.GetThrowSpeed());
+                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                }
+                if (currentSpore == fireSporePrefab)
+                {
+                    Spore sporeThrown = Instantiate(fireSporePrefab, transform.position, Quaternion.identity);
+                    sporeTrajectoryRenderer.enabled = false;
+                    sporeThrown.AddImpulse(throwDirection, fireSporePrefab.GetThrowSpeed());
+                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                }
+                if (currentSpore == cordycepsSporePrefab)
+                {
+                    Spore sporeThrown = Instantiate(cordycepsSporePrefab, transform.position, Quaternion.identity);
+                    sporeTrajectoryRenderer.enabled = false;
+                    sporeThrown.AddImpulse(throwDirection, cordycepsSporePrefab.GetThrowSpeed());
+                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+                }
             }
         } else {
             cancel = false; // allows for shooting to be used again.
@@ -90,5 +114,14 @@ public class ThrowTest : MonoBehaviour
     }
     public bool ShootingState(){
         return !shooting;
-    } 
+    }
+    public void ChangeSpore(SporeItem sporeItem)
+    {
+        if (sporeItem.sporeType == SporeType.Cordyceps)
+            currentSpore= cordycepsSporePrefab;
+        if (sporeItem.sporeType == SporeType.Fire)
+            currentSpore = fireSporePrefab;
+        if (sporeItem.sporeType == SporeType.Teleport)
+            currentSpore = teleportSporePrefab;
+    }
 }
