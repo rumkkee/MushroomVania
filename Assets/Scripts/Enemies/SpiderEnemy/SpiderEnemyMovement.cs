@@ -67,4 +67,10 @@ public class SpiderEnemyMovement : EnemyMovement
         yield return new WaitForSeconds(webCooldown);//Cooldown for licking
         isWebbing = false;
     }
+
+    public void DestroyWeb(){
+        if(webbing != null){
+            Destroy(webbing);
+        }
+    }
 }
