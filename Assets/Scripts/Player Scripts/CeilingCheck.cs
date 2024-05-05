@@ -8,6 +8,7 @@ public class CeilingCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.isTrigger){return;}
         Movement player = other.gameObject.GetComponent<Movement>();
         if(player == null)
         {
