@@ -667,7 +667,6 @@ GameObject:
   - component: {fileID: 7320286612159595586}
   - component: {fileID: 3535977446438047488}
   - component: {fileID: 3351581787005656573}
-  - component: {fileID: 2221724612849224586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -767,10 +766,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbae70b607af2e4fb7fc58622baad7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportSporePrefab: {fileID: 6170800030019777992, guid: 44ea2f715974683488559ab2d6410186, type: 3}
+  fireSporePrefab: {fileID: -5405109077534043659, guid: 5383a29ce2f64a849a8e82382e6e85ae, type: 3}
+  cordycepsSporePrefab: {fileID: 4104357072703201290, guid: b8dd7e2399295cd41bedd470d3442ebb, type: 3}
+  currentSpore: {fileID: 0}
   sporeTrajectoryRenderer: {fileID: 8630273944246131130}
-  sporePrefab: {fileID: 6170800030019777992, guid: 44ea2f715974683488559ab2d6410186, type: 3}
-  sporeFlightDuration: 3
   direction: {x: 0, y: 0, z: 0}
+  throwForce: 0
+  sporeFlightDuration: 3
   cooldownDuration: 0.2
 --- !u!114 &7320286612159595586
 MonoBehaviour:
@@ -809,24 +812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337bdb51927cb07468023ebf7103a4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2221724612849224586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5624147368610879211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be90520bddaf024e8578a01537150f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  venomBeam: {fileID: 0}
-  venomBeamIndicator: {fileID: 0}
-  venomBeam2: {fileID: 0}
-  venomBeamIndicator2: {fileID: 0}
-  venomBeam3: {fileID: 0}
-  venomBeamIndicator3: {fileID: 0}
 --- !u!1 &7138470638886342850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e365d41994cec54bb3af5295fb39759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 50
 --- !u!135 &6267059611317497748
 SphereCollider:
   m_ObjectHideFlags: 0

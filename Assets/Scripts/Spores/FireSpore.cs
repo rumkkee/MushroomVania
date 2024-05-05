@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireSpore : MonoBehaviour
+public class FireSpore : Spore
 {
     [SerializeField] private int damage = 5;
 
@@ -23,6 +23,7 @@ public class FireSpore : MonoBehaviour
 
         if(other.gameObject.tag == "Vines"){
             Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
