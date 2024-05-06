@@ -16,7 +16,13 @@ public class SporeItemManager : MonoBehaviour
 
     public bool CanThrow()
     {
-        return SporeSelect.instance.mainSpore.HasSufficientCharge();
+        return SporeSelect.instance.CanThrowCurrentSpore();
+    }
+
+    public Spore GetCurrentSpore()
+    {
+        PayCharge();
+        return SporeSelect.instance.mainSpore.sporePrefab;
     }
 
     public void PayCharge()

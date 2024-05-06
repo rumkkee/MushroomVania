@@ -201,4 +201,9 @@ public class SporeSelect : MonoBehaviour
         //function so we can't switch 
         isSwitching = false;
     }
+
+    public bool CanThrowCurrentSpore()
+    {
+        return mainSpore.CanThrowCurrentSpore();
+    }
 }

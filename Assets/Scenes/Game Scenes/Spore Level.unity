@@ -320,10 +320,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8679484668022479062, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
-      propertyPath: sporesList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

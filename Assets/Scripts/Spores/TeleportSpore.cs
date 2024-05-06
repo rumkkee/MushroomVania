@@ -11,5 +11,6 @@ public class TeleportSpore : Spore
     {
         base.SporeCollisionEvents();
         OnTeleportSporeCollided(transform.position);
+        ThrowTest.instance.StartCooldown();
     }
 }

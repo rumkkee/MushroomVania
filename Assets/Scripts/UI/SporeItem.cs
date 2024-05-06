@@ -69,7 +69,7 @@ public class SporeItem : MonoBehaviour
 
     public bool HasSufficientCharge()
     {
-        return currentCharge - chargeTakenPerUse > 0;
+        return currentCharge - chargeTakenPerUse >= 0;
     }
 
     public void TakeCharge()
@@ -79,5 +79,18 @@ public class SporeItem : MonoBehaviour
         currentCharge = (newCurrentCharge > 0) ? newCurrentCharge : 0;
         StopAllCoroutines();
         StartCoroutine(CheckCharge());
+    }
+
+    public bool CanThrowCurrentSpore()
+    {
+        Debug.Log(sporePrefab.GetType() == typeof(TeleportSpore));
+        if(sporePrefab.GetType() == typeof(TeleportSpore))
+        {
+            return Spore.instance == null;
+        }
+        else
+        {
+            return HasSufficientCharge();
+        }
     }
 }

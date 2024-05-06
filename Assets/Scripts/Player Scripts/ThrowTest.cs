@@ -31,7 +31,6 @@ public class ThrowTest : MonoBehaviour
         instance = this;
         mainCamera = Camera.main;
         onCooldown = false;
-        Spore.OnSporeDestroyed += StartCooldown;
     }
 
     private void Start()
@@ -64,26 +63,22 @@ public class ThrowTest : MonoBehaviour
             sporeTrajectoryRenderer.enabled = false;
             if (SporeItemManager.instance.CanThrow())
             {
-                ThrowSpore();
+                Spore sporeToThrow = SporeItemManager.instance.GetCurrentSpore();
+                ThrowSpore(sporeToThrow);
             }
 
         }
     }
 
-    private void ThrowSpore(){
+    private void ThrowSpore(Spore sporePrefab){
         if(!cancel){
             //These get the direction of where the mouse is for the spore to shoot will only run if it isn't canceled.
             
             //Wont shoot anything if on cooldown or you have no spore.
-            if(Spore.instance == null && !onCooldown)
-            {
-                Spore sporeThrown = Instantiate(currentSpore, transform.position, Quaternion.identity);
-                sporeTrajectoryRenderer.enabled = false;
-                sporeThrown.AddImpulse(direction, teleportSporePrefab.GetThrowSpeed());
-                StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
-
-                SporeItemManager.instance.PayCharge();
-            }
+            Spore sporeThrown = Instantiate(sporePrefab, transform.position, Quaternion.identity);
+            sporeTrajectoryRenderer.enabled = false;
+            sporeThrown.AddImpulse(direction, sporePrefab.GetThrowSpeed());
+            StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
         } else {
             cancel = false; // allows for shooting to be used again.
         }
@@ -91,7 +86,7 @@ public class ThrowTest : MonoBehaviour
     }
 
     //Cooldown functions for shooting and function for sword to not swing when cancelling shot.
-    private void StartCooldown() => StartCoroutine(StartCooldownHelper());
+    public void StartCooldown() => StartCoroutine(StartCooldownHelper());
     private IEnumerator StartCooldownHelper()
     {
         onCooldown = true;
