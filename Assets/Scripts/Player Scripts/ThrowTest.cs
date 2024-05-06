@@ -76,27 +76,10 @@ public class ThrowTest : MonoBehaviour
             //Wont shoot anything if on cooldown or you have no spore.
             if(Spore.instance == null && !onCooldown)
             {
-                if (currentSpore == teleportSporePrefab)
-                {
-                    Spore sporeThrown = Instantiate(teleportSporePrefab, transform.position, Quaternion.identity);
-                    sporeTrajectoryRenderer.enabled = false;
-                    sporeThrown.AddImpulse(throwDirection, teleportSporePrefab.GetThrowSpeed());
-                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
-                }
-                if (currentSpore == fireSporePrefab)
-                {
-                    Spore sporeThrown = Instantiate(fireSporePrefab, transform.position, Quaternion.identity);
-                    sporeTrajectoryRenderer.enabled = false;
-                    sporeThrown.AddImpulse(throwDirection, fireSporePrefab.GetThrowSpeed());
-                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
-                }
-                if (currentSpore == cordycepsSporePrefab)
-                {
-                    Spore sporeThrown = Instantiate(cordycepsSporePrefab, transform.position, Quaternion.identity);
-                    sporeTrajectoryRenderer.enabled = false;
-                    sporeThrown.AddImpulse(throwDirection, cordycepsSporePrefab.GetThrowSpeed());
-                    StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
-                }
+                Spore sporeThrown = Instantiate(currentSpore, transform.position, Quaternion.identity);
+                sporeTrajectoryRenderer.enabled = false;
+                sporeThrown.AddImpulse(throwDirection, teleportSporePrefab.GetThrowSpeed());
+                StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
             }
         } else {
             cancel = false; // allows for shooting to be used again.
