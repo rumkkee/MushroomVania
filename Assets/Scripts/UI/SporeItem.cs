@@ -13,7 +13,7 @@ public class SporeItem : MonoBehaviour
 {
     public Sprite sporeSprite;
 
-    public GameObject sporePrefab;
+    public Spore sporePrefab;
 
     public SporeType sporeType;
 
@@ -65,5 +65,19 @@ public class SporeItem : MonoBehaviour
             yield return null;
         } while (currentCharge < maxCharge);
         currentCharge = maxCharge;
+    }
+
+    public bool HasSufficientCharge()
+    {
+        return currentCharge - chargeTakenPerUse > 0;
+    }
+
+    public void TakeCharge()
+    {
+        Debug.Log("Entered Take Charge");
+        float newCurrentCharge = currentCharge - chargeTakenPerUse;
+        currentCharge = (newCurrentCharge > 0) ? newCurrentCharge : 0;
+        StopAllCoroutines();
+        StartCoroutine(CheckCharge());
     }
 }

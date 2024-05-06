@@ -41,14 +41,15 @@ public class ThrowTest : MonoBehaviour
 
     void Update()
     {
-        Vector3 mouseScreenPosition = Input.mousePosition;
-        Vector3 clickedPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
-
-        direction = clickedPos - this.transform.position;
-        direction = new Vector3(-direction.y, direction.x, 0);
+        
 
         if (Input.GetMouseButton(1) && !cancel)
         {
+            Vector3 mouseScreenPosition = Input.mousePosition;
+            Vector3 clickedPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
+
+            direction = (clickedPos - this.transform.position).normalized;
+
             shooting = true;
             if (Input.GetMouseButtonDown(0))
             {
@@ -61,25 +62,27 @@ public class ThrowTest : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             sporeTrajectoryRenderer.enabled = false;
-            ThrowSpore();
+            if (SporeItemManager.instance.CanThrow())
+            {
+                ThrowSpore();
+            }
+
         }
     }
 
     private void ThrowSpore(){
         if(!cancel){
             //These get the direction of where the mouse is for the spore to shoot will only run if it isn't canceled.
-            Vector3 mouseScreenPosition = Input.mousePosition;
-            Vector3 clickedPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.transform.position.z * -1f));
-
-            Vector3 throwDirection = new Vector3(clickedPos.x - transform.position.x, clickedPos.y - transform.position.y).normalized;
             
             //Wont shoot anything if on cooldown or you have no spore.
             if(Spore.instance == null && !onCooldown)
             {
                 Spore sporeThrown = Instantiate(currentSpore, transform.position, Quaternion.identity);
                 sporeTrajectoryRenderer.enabled = false;
-                sporeThrown.AddImpulse(throwDirection, teleportSporePrefab.GetThrowSpeed());
+                sporeThrown.AddImpulse(direction, teleportSporePrefab.GetThrowSpeed());
                 StartCoroutine(sporeThrown.Lifespan(sporeFlightDuration));
+
+                SporeItemManager.instance.PayCharge();
             }
         } else {
             cancel = false; // allows for shooting to be used again.

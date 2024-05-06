@@ -21,6 +21,16 @@ public class SporeSelect : MonoBehaviour
 
     public Animator animator;
 
+    public static SporeSelect instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         throwTest = FindObjectOfType<ThrowTest>();

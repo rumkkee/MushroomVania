@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sporeSprite: {fileID: 21300000, guid: 741ab30eb2549084f9e510f9017fdf23, type: 3}
-  sporePrefab: {fileID: 0}
+  sporePrefab: {fileID: 4104357072703201290, guid: b8dd7e2399295cd41bedd470d3442ebb, type: 3}
   sporeType: 0
   SelectSound: {fileID: 0}
   maxCharge: 100
