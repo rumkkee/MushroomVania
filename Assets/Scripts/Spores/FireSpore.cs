@@ -23,6 +23,11 @@ public class FireSpore : Spore
 
         if(other.gameObject.tag == "Vines"){
             Destroy(other.gameObject);
+        }
+
+        if(!other.CompareTag("Player") && !other.isTrigger)
+        {
+            SporeCollisionEvents();
             Destroy(gameObject);
         }
     }
