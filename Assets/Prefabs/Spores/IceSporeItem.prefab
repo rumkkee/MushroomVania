@@ -48,3 +48,8 @@ MonoBehaviour:
   sporePrefab: {fileID: 0}
   sporeType: 2
   SelectSound: {fileID: 0}
+  maxCharge: 100
+  currentCharge: 100
+  chargeTakenPerUse: 0
+  chargeDelay: 0
+  rechargeRatePerSec: 0
