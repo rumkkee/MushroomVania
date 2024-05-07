@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 714060890205210352}
   - component: {fileID: 4278006646997441698}
   - component: {fileID: 4359328637884103936}
+  - component: {fileID: 4778728659585047802}
   m_Layer: 0
   m_Name: AntiPlayer
   m_TagString: Untagged
@@ -156,5 +157,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11eaceb096a3cdb40a0f077df352b344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 71.17
+  player: {fileID: 0}
+  followSpeed: 2
+--- !u!114 &4778728659585047802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697118809933910848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f45387d0778e814fad0e9d27f1b9647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  antiPlayerPrefab: {fileID: 7697118809933910848}
