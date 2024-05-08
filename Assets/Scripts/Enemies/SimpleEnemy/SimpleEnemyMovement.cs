@@ -12,6 +12,11 @@ public class SimpleEnemyMovement : EnemyMovement
     void Start(){
         spider = GetComponent<SpriteRenderer>();
         spider.flipX = !turn;
+        int rand = Random.Range(1, 3);
+        if(rand == 1){
+            Turn();
+        }
+        
     }
     void Update()
     {
