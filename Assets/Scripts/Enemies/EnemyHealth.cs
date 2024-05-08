@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 500;
-    private int currentHealth;
+    public int currentHealth;
     public GameObject healthDrop;
     private int secondsForFire = 5;
     private bool onFire = false;
 
-    private void Awake()
+    private void Start()
     {
         currentHealth = maxHealth;
     }
@@ -28,9 +28,6 @@ public class EnemyHealth : MonoBehaviour
     private void OnDefeat()
     {
         SpiderEnemyMovement web = gameObject.GetComponent<SpiderEnemyMovement>();
-        if(web != null){
-            web.DestroyWeb();
-        }
         if(Random.Range(1, 6) == 1){
             Instantiate(healthDrop, transform.position, Quaternion.identity);
         }
