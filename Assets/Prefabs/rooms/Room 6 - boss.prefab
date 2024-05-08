@@ -17057,6 +17057,7 @@ GameObject:
   - component: {fileID: 668434055456782835}
   - component: {fileID: 2876674478762370085}
   - component: {fileID: 4588745693311459014}
+  - component: {fileID: 9065580286103197941}
   m_Layer: 0
   m_Name: Cave spider
   m_TagString: Untagged
@@ -17170,6 +17171,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6989795499eed5b41980a53b8fa8cc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &9065580286103197941
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908522045245915073}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2295577a7c739642be81a08c83aed03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2116330411348559855
 GameObject:
   m_ObjectHideFlags: 0
