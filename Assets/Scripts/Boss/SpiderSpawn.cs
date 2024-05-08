@@ -6,13 +6,15 @@ public class SpiderSpawn : MonoBehaviour
 {
     public GameObject spiderPrefab;
 
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("SpawnSpider starts");
-            SpawnSpider();
-        }
+        bossAttack.SpiderBall += Attack;
+    }
+
+    public void Attack()
+    {
+        Debug.Log("SpawnSpider starts");
+        SpawnSpider();
     }
 
     public void SpawnSpider(){

@@ -13,6 +13,7 @@ public class VenomBeam : MonoBehaviour
     public GameObject venomBeamIndicator3;
     void Start()
     {
+        bossAttack.VenomBeam += VenomBeamAttack;
         venomBeam.SetActive(false);
         venomBeamIndicator.SetActive(false);
         venomBeam2.SetActive(false);
