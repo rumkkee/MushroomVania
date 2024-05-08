@@ -11,9 +11,9 @@ public class SporeSelect : MonoBehaviour
     private ThrowTest throwTest;
     bool isSwitching = false;
 
-    public Image mainSporeSlot;
-    public Image leftSporeSlot;
-    public Image rightSporeSlot;
+    public SporeItemUI mainSporeItemUI;
+    public SporeItemUI leftSporeItemUI;
+    public SporeItemUI rightSporeItemUI;
 
     int mainSporeIndex = 0;
 
@@ -28,10 +28,11 @@ public class SporeSelect : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            Init();
         }
     }
 
-    void Start()
+    void Init()
     {
         throwTest = FindObjectOfType<ThrowTest>();
         SetSpores();
@@ -70,17 +71,26 @@ public class SporeSelect : MonoBehaviour
         if(sporesList.Count == 1)
         {
             mainSpore = sporesList[0];
+
+            mainSporeItemUI.SetSporeItem(mainSpore);
         }
         else if(sporesList.Count == 2)
         {
             mainSpore = sporesList[1];
             leftSpore = sporesList[0];
+
+            mainSporeItemUI.SetSporeItem(mainSpore);
+            leftSporeItemUI.SetSporeItem(leftSpore);
         }
         else
         {
             mainSpore = sporesList[1];
             leftSpore = sporesList[0];
             rightSpore = sporesList[2];
+
+            mainSporeItemUI.SetSporeItem(mainSpore);
+            leftSporeItemUI.SetSporeItem(leftSpore);
+            rightSporeItemUI.SetSporeItem(rightSpore);
         }
     }
 
@@ -106,6 +116,9 @@ public class SporeSelect : MonoBehaviour
             rightSpore = null;
             mainSpore = sporesList[mainSporeIndex];
             leftSpore = sporesList[(mainSporeIndex - 1 + sporesList.Count) % sporesList.Count];
+
+            mainSporeItemUI.SetSporeItem(mainSpore);
+            leftSporeItemUI.SetSporeItem(leftSpore);
         }
         else
         {
@@ -113,6 +126,10 @@ public class SporeSelect : MonoBehaviour
             mainSpore = sporesList[mainSporeIndex];
             rightSpore = sporesList[(mainSporeIndex + 1) % sporesList.Count];
             leftSpore = sporesList[(mainSporeIndex - 1 + sporesList.Count) % sporesList.Count];
+
+            mainSporeItemUI.SetSporeItem(mainSpore);
+            leftSporeItemUI.SetSporeItem(leftSpore);
+            rightSporeItemUI.SetSporeItem(rightSpore);
         }
         isSwitching = true;
     }
@@ -132,6 +149,9 @@ public class SporeSelect : MonoBehaviour
             rightSpore = null;
             mainSpore = sporesList[mainSporeIndex];
             leftSpore = sporesList[(mainSporeIndex - 1 + sporesList.Count) % sporesList.Count];
+
+            mainSporeItemUI.SetSporeItem(mainSpore);
+            leftSporeItemUI.SetSporeItem(leftSpore);
         }
         else
         {
@@ -139,6 +159,10 @@ public class SporeSelect : MonoBehaviour
             mainSpore = sporesList[mainSporeIndex];
             rightSpore = sporesList[(mainSporeIndex + 1) % sporesList.Count];
             leftSpore = sporesList[(mainSporeIndex - 1 + sporesList.Count) % sporesList.Count];
+
+            mainSporeItemUI.SetSporeItem(mainSpore);
+            leftSporeItemUI.SetSporeItem(leftSpore);
+            rightSporeItemUI.SetSporeItem(rightSpore);
         }
         isSwitching = true;
     }
@@ -147,34 +171,59 @@ public class SporeSelect : MonoBehaviour
     {
         if (sporesList.Count == 0)
         {
-            mainSporeSlot.enabled = false;
+            SetSlotValues(false, false, false);
+            /*mainSporeSlot.enabled = false;
             leftSporeSlot.enabled = false;
-            rightSporeSlot.enabled = false;
+            rightSporeSlot.enabled = false;*/
         }
         else if (sporesList.Count == 1)
         {
-            mainSporeSlot.enabled = true;
-            mainSporeSlot.sprite = mainSpore.sporeSprite;
-            leftSporeSlot.enabled = false;
-            rightSporeSlot.enabled = false;
+            SetSlotValues(false, true, false);
+            SetSporeSprites();
+            //mainSporeSlot.enabled = true;
+            //mainSporeSlot.sprite = mainSpore.sporeSprite;
+            /*leftSporeSlot.enabled = false;
+            rightSporeSlot.enabled = false;*/
         }
         else if (sporesList.Count == 2)
         {
-            mainSporeSlot.enabled = true;
-            leftSporeSlot.enabled = true;
-            mainSporeSlot.sprite = mainSpore.sporeSprite;
-            leftSporeSlot.sprite = leftSpore.sporeSprite;
-            rightSporeSlot.enabled = false;
+            SetSlotValues(true, true, false);
+            SetSporeSprites();
+            /*mainSporeSlot.enabled = true;
+            leftSporeSlot.enabled = true;*/
+            /*mainSporeSlot.sprite = mainSpore.sporeSprite;
+            leftSporeSlot.sprite = leftSpore.sporeSprite;*/
+            /*rightSporeSlot.enabled = false;*/
         }
         else
         {
-            mainSporeSlot.enabled = true;
+            SetSlotValues(true, true, true);
+            SetSporeSprites();
+            /*mainSporeSlot.enabled = true;
             leftSporeSlot.enabled = true;
-            rightSporeSlot.enabled = true;
-            mainSporeSlot.sprite = mainSpore.sporeSprite;
+            rightSporeSlot.enabled = true;*/
+            /*mainSporeSlot.sprite = mainSpore.sporeSprite;
             leftSporeSlot.sprite = leftSpore.sporeSprite;
-            rightSporeSlot.sprite = rightSpore.sporeSprite;
+            rightSporeSlot.sprite = rightSpore.sporeSprite;*/
         }
+    }
+
+    private void SetSlotValues(bool leftActive, bool mainActive, bool rightActive)
+    {
+        leftSporeItemUI.sliderImageSlot.enabled = leftActive;
+        mainSporeItemUI.sliderImageSlot.enabled = mainActive;
+        rightSporeItemUI.sliderImageSlot.enabled = rightActive;
+    }
+
+    private void SetSporeSprites()
+    {
+        if(leftSpore != null)
+        leftSporeItemUI.sliderImageSlot.sprite = leftSpore.sporeSprite;
+        if(mainSpore != null)
+        mainSporeItemUI.sliderImageSlot.sprite = mainSpore.sporeSprite;
+        if(rightSpore != null)
+        rightSporeItemUI.sliderImageSlot.sprite = rightSpore.sporeSprite;
+
     }
 
     private void UpdateSpores()

@@ -9,7 +9,7 @@ public class SporeItemUI : MonoBehaviour
     public Image sliderImageSlot;
     [SerializeField] private SporeItem sporeItem;
 
-    private void Awake()
+    private void Start()
     {
         // Have sporeItem be assigned on Awake from the SporeUIManager
 

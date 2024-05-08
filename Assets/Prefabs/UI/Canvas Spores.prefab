@@ -663,6 +663,9 @@ MonoBehaviour:
   mainSporeSlot: {fileID: 5906815340232312938}
   leftSporeSlot: {fileID: 7389057167907255866}
   rightSporeSlot: {fileID: 2694412680516413936}
+  mainSporeItemUI: {fileID: 0}
+  leftSporeItemUI: {fileID: 0}
+  rightSporeItemUI: {fileID: 0}
   sporesList:
   - {fileID: 1887947860662420724}
   - {fileID: 3404936327840150887}
