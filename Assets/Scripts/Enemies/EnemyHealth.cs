@@ -28,9 +28,6 @@ public class EnemyHealth : MonoBehaviour
     private void OnDefeat()
     {
         SpiderEnemyMovement web = gameObject.GetComponent<SpiderEnemyMovement>();
-        if(web != null){
-            web.DestroyWeb();
-        }
         if(Random.Range(1, 6) == 1){
             Instantiate(healthDrop, transform.position, Quaternion.identity);
         }

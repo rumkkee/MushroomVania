@@ -73,4 +73,10 @@ public class SpiderEnemyMovement : EnemyMovement
             Destroy(webbing);
         }
     }
+
+    void OnDestroy(){
+        if(webbing != null){
+            Destroy(webbing);
+        }
+    }
 }

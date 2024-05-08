@@ -21,15 +21,6 @@ public class LivesManagement : MonoBehaviour
         UpdateLifeUI();
     }
 
-    // void Update()
-    // {
-        //test to view when the player takes damage
-        // if (Input.GetKeyDown(KeyCode.E))
-        // {
-        //     TakeDamage();
-        // }
-    // }
-
     public void TakeDamage()
     {
         lifeCount--;
