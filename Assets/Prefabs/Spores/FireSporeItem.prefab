@@ -49,7 +49,7 @@ MonoBehaviour:
   sporeType: 1
   SelectSound: {fileID: 0}
   maxCharge: 100
-  currentCharge: 0
+  currentCharge: 100
   chargeTakenPerUse: 25
   chargeDelay: 0
   rechargeRatePerSec: 0
