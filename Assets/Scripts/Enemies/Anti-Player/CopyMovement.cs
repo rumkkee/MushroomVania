@@ -9,6 +9,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void Start()
     {
+        player = Player.instance.transform;
         StartCoroutine(FollowPlayerCoroutine());
     }
 
