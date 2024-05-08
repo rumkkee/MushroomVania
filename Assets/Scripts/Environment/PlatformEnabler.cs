@@ -13,14 +13,13 @@ public class PlatformEnabler : MonoBehaviour
         platform1.SetActive(false);
         platform2.SetActive(false);
         platform3.SetActive(false);
+
+        InvokeRepeating("TogglePlatform", 10f, 30f);
     }
 
-    void Update()
+    void TogglePlatform()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            EnablePlatforms();
-        }
+        EnablePlatforms();
     }
 
     IEnumerator EnablePlatformTimer()
