@@ -7485,11 +7485,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 714060890205210352, guid: e0b1805271498bf4d8dee94851b04e8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.5
+      value: -13.21
       objectReference: {fileID: 0}
     - target: {fileID: 714060890205210352, guid: e0b1805271498bf4d8dee94851b04e8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 714060890205210352, guid: e0b1805271498bf4d8dee94851b04e8f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7523,6 +7523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1098062744566031247, guid: e0b1805271498bf4d8dee94851b04e8f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e42036242edebfb4dbd0f14ca36b22f3, type: 3}
     - target: {fileID: 7697118809933910848, guid: e0b1805271498bf4d8dee94851b04e8f, type: 3}
       propertyPath: m_Name
       value: AntiPlayer
