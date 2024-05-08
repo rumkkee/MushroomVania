@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 500;
-    private int currentHealth;
+    public int currentHealth;
     public GameObject healthDrop;
     private int secondsForFire = 5;
     private bool onFire = false;
 
-    private void Awake()
+    private void Start()
     {
         currentHealth = maxHealth;
     }
