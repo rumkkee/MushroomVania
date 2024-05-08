@@ -18,21 +18,27 @@ public class DamageFromSpikes : MonoBehaviour
         {
             PlayerTakeDamage.Invoke();
         }
-        
+
         // Check for collisions on the right
         else if (Physics.Raycast(startPoint, Vector2.right, out hit, halfHeight) && hit.collider.CompareTag("Spikes"))
         {
             PlayerTakeDamage.Invoke();
         }
-        
+
         // Check for collisions on the left
         else if (Physics.Raycast(startPoint, Vector2.left, out hit, halfHeight) && hit.collider.CompareTag("Spikes"))
         {
             PlayerTakeDamage.Invoke();
         }
-        
+
         // Check for collisions upwards
         else if (Physics.Raycast(startPoint, Vector2.up, out hit, halfHeight) && hit.collider.CompareTag("Spikes"))
+        {
+            PlayerTakeDamage.Invoke();
+        }
+
+        // Kill the Player if he is below y = -50
+        if (transform.position.y < -50)
         {
             PlayerTakeDamage.Invoke();
         }
