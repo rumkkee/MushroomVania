@@ -256,13 +256,25 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3161613535903720996, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 23091b91eb1eb4646a3d85dd221b5e5f, type: 3}
+    - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -14.83
       objectReference: {fileID: 0}
     - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.58
+      value: -4.83
       objectReference: {fileID: 0}
     - target: {fileID: 3257666472981758811, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
       propertyPath: m_LocalPosition.z
@@ -423,9 +435,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 556645253770247148, guid: 73c24615183832d4ba611dba7bd1dc49, type: 3}
-  - {fileID: 8396959152902607553, guid: 1f3a383848895454693384c06641a0c7, type: 3}
-  - {fileID: 556645253770247148, guid: f19aa3d3ae191e34e9e9fdb13fa21454, type: 3}
+  - {fileID: 556645253770247148, guid: 0745e0ff43bab9942b3084ce3552d095, type: 3}
+  - {fileID: 556645253770247148, guid: 07a0103cfc2ae7246a47d5222f16e380, type: 3}
+  - {fileID: 556645253770247148, guid: 689f1da80f83f3c42ad33aeab597821a, type: 3}
+  - {fileID: 556645253770247148, guid: 39ca979637b2c144da103d1ec2cbc59c, type: 3}
+  - {fileID: 556645253770247148, guid: 0745e0ff43bab9942b3084ce3552d095, type: 3}
+  - {fileID: 556645253770247148, guid: f9ebdb35f65ae5f418510a3bb43db21b, type: 3}
+  - {fileID: 556645253770247148, guid: 0d683c14524ab774eb7770179c340155, type: 3}
   player: {fileID: 1407210634}
   mainCam: {fileID: 1132589116}
 --- !u!4 &1206177420
