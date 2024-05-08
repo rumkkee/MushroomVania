@@ -18,6 +18,13 @@ public class SpiderEnemyMovement : EnemyMovement
     private bool isWebbing = false;
     private GameObject webbing;
     private Vector2 webDirection;
+
+    void Start(){
+        int rand = Random.Range(1, 3);
+        if(rand == 1){
+            Turn();
+        }
+    }
     
     void Update()
     {
