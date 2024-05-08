@@ -423,8 +423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 556645253770247148, guid: 73c24615183832d4ba611dba7bd1dc49, type: 3}
-  - {fileID: 8396959152902607553, guid: 1f3a383848895454693384c06641a0c7, type: 3}
+  - {fileID: 2741997863174276826, guid: 0bbbf6e8cf6603c45a532e50abb74ba4, type: 3}
+  - {fileID: 8275192007668966220, guid: 5034509cb7a5d344bb5a53ebae921b5a, type: 3}
   - {fileID: 556645253770247148, guid: f19aa3d3ae191e34e9e9fdb13fa21454, type: 3}
   player: {fileID: 1407210634}
   mainCam: {fileID: 1132589116}
