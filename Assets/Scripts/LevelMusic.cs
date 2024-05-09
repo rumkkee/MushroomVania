@@ -12,8 +12,9 @@ public class LevelMusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        //the name of the room management script is NewBehaviourScript
+        roomManager = GetComponent<NewBehaviourScript>();
+
     }
 
     // Update is called once per frame
@@ -31,12 +32,7 @@ public class LevelMusic : MonoBehaviour
         }
         else
         {
-            //in normal rooms
-            if (bossMusic.isPlaying)
-            {
-                //make sure that the boss music is not playing
-                bossMusic.Stop();
-            }
+            
 
             if (!levelMusic.isPlaying)
             {

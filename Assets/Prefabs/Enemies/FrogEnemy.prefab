@@ -173,8 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  currentHealth: 0
   healthDrop: {fileID: 7234289283504010454, guid: 1dea8146c0e91ef459eee189e128a8fc, type: 3}
-  hit: {fileID: 2463390899091893485}
+  hitSound: {fileID: 2463390899091893485}
 --- !u!114 &2662311637170855484
 MonoBehaviour:
   m_ObjectHideFlags: 0
