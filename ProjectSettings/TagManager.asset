@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Sword
   - Spikes
+  - Venom
   layers:
   - Default
   - TransparentFX

@@ -5,14 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="095bc295-a448-4c05-b5a4-46a2dae06a0a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/ModifiedPlayerDetect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ModifiedPlayerDetect.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/Body.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/Body.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/Head.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/Head.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/StackEnemy.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/StackEnemy.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/VenomPlaceHolder.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/StackEnemy/VenomPlaceHolder.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Player (StackEnemyVenomHitPrefab).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Player (StackEnemyVenomHitPrefab).prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Stack Enemy Test.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Stack Enemy Test.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/DamageFromVenom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/DamageFromVenom.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/ModifiedPlayerDetect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/ModifiedPlayerDetect.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/ShootVenom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/ShootVenom.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackBodyHealth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackBodyHealth.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackEnemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackEnemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackHeadHealth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackHeadHealth.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackMasterHealth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/StackEnemyScripts/StackMasterHealth.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ShootVenom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ShootVenom.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackBodyHealth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackBodyHealth.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackEnemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackEnemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackHeadHealth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackHeadHealth.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackMasterHealth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StackMasterHealth.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/DoubleSpikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/DoubleSpikes.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/Spikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/Spikes.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/TripleSpikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/TripleSpikes.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Enemy Test Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Enemy Test Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/FlyingEnemyTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/FlyingEnemyTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LivesManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LivesManagement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +57,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Kevin/Desktop/Programmier Stuff/MushroomVania/Assets/Scenes/Test Scenes/FlyingEnemyTest.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Kevin/Desktop/Programmier Stuff/MushroomVania/Assets/Scenes/Test Scenes/FlyingEnemyTest.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Environment/SpikeHazards.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.10/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DamageFromVenom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ShootVenom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,7 +78,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MS3/justin/stack-enemy&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -56,9 +88,9 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Kevin\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Kevin\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Kevin\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\justi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\justi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\justi\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
@@ -115,6 +147,12 @@
       <workItem from="1713982140950" duration="320000" />
       <workItem from="1713983694434" duration="3999000" />
       <workItem from="1714001519289" duration="2774000" />
+      <workItem from="1714459720358" duration="2472000" />
+      <workItem from="1714668997015" duration="8701000" />
+      <workItem from="1714851881138" duration="1574000" />
+      <workItem from="1714853510355" duration="3210000" />
+      <workItem from="1715149856712" duration="3937000" />
+      <workItem from="1715187909337" duration="119000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted unecessary scenes, reformated Code in SwordSwing.cs, added folder structure to spore scripts">
       <option name="closed" value="true" />
