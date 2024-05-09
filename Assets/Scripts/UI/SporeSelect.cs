@@ -255,4 +255,9 @@ public class SporeSelect : MonoBehaviour
     {
         return mainSpore.CanThrowCurrentSpore();
     }
+
+    private void OnValidate()
+    {
+        Init();
+    }
 }
