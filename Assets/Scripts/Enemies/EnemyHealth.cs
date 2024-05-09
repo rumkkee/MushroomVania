@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour
     private int secondsForFire = 5;
     private bool onFire = false;
 
+    public AudioSource hit;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -19,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("enemy hit");
         currentHealth -= damageReceived;
+        hit.Play();
         if(currentHealth <= 0)
         {
             OnDefeat();

@@ -110,6 +110,13 @@ public class NewBehaviourScript : MonoBehaviour
 
 
     }
+    
+    
+    //New function to be able to play boss music only in boss room
+    public GameObject getCurrentRoom()
+    {
+        return currentRoom;
+    }
 
     
 }

@@ -15,6 +15,8 @@ public class SwordSwing : MonoBehaviour
     private Camera mainCamera; 
     ThrowTest swordAvailability;
     private bool isGrounded;
+
+    public AudioSource swingSound;
     
     void Start()
     {
@@ -60,6 +62,8 @@ public class SwordSwing : MonoBehaviour
             sword.SetActive(true);
             swinging = true;
             StartCoroutine(Swing());
+            
+            swingSound.Play();
         }
 
         Vector3 startPoint = transform.position;

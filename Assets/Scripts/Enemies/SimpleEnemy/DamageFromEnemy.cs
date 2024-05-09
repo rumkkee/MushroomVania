@@ -12,6 +12,8 @@ public class DamageFromEnemy : MonoBehaviour
     private float impulseScalar;
     private float impulseDuration;
 
+    public AudioSource hitSound;
+
     void Update()
     {
         Vector3 startPoint = transform.position;
@@ -44,6 +46,8 @@ public class DamageFromEnemy : MonoBehaviour
                 StartCoroutine(ImpulseRun(direction));
 
                 PlayerTakeDamage.Invoke();
+
+                hitSound.Play();
                 
                 StartCoroutine(DamageImmunity());
                 
@@ -64,6 +68,8 @@ public class DamageFromEnemy : MonoBehaviour
                 StartCoroutine(ImpulseRun(direction));
 
                 PlayerTakeDamage.Invoke();
+                
+                hitSound.Play();
 
                 StartCoroutine(DamageImmunity());
 
@@ -75,6 +81,7 @@ public class DamageFromEnemy : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "FrogTongue" && !immunity){
             PlayerTakeDamage.Invoke();
+            hitSound.Play();
             StartCoroutine(DamageImmunity());
         }
     }

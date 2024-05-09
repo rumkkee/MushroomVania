@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,19 @@ public class FlyingEnemyMovement : EnemyMovement
 
     private IEnumerator currentAction;
 
+    public AudioSource flaps;
+
     private void Start()
     {
         ChangeState(IdleRoam());
+    }
+
+    private void Update()
+    {
+        if (!flaps.isPlaying)
+        {
+            flaps.Play();
+        }
     }
 
     public void ChangeState(IEnumerator enumerator)

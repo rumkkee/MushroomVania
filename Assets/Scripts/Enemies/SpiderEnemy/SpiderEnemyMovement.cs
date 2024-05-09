@@ -18,6 +18,9 @@ public class SpiderEnemyMovement : EnemyMovement
     private bool isWebbing = false;
     private GameObject webbing;
     private Vector2 webDirection;
+
+    public AudioSource walkSound;
+    public AudioSource webShoot;
     
     void Update()
     {
@@ -27,6 +30,12 @@ public class SpiderEnemyMovement : EnemyMovement
         }
         if(canShoot && !isWebbing){
             Shoot();
+            webShoot.Play();
+        }
+
+        if (!walkSound.isPlaying)
+        {
+            walkSound.Play();
         }
     }
 

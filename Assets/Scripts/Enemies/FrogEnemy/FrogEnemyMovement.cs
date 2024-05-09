@@ -22,6 +22,9 @@ public class FrogEnemyMovement : EnemyMovement
     private bool groundedLeft = false;
     private bool groundedRight = false;
 
+    public AudioSource jumpSound;
+    public AudioSource tongueSound;
+
     
     void Start()
     {
@@ -37,6 +40,7 @@ public class FrogEnemyMovement : EnemyMovement
                 isLicking = true;
                 currentIdleTime = 0;//If the player is in range and grounded and is not currently in the lick process it will lick.
                 LickPlayer();
+                tongueSound.Play();
             } 
             else 
             {
@@ -46,10 +50,12 @@ public class FrogEnemyMovement : EnemyMovement
                     if(isIdle)
                     {
                         IdleJump();//If player not range calls IdleJump if you are it calls FollowJump
+                        jumpSound.Play();
                     } 
                     else 
                     {
                         FollowJump();
+                        jumpSound.Play();
                     }
                 }
             }
