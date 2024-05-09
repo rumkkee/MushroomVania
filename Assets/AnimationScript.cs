@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class AnimationScript : MonoBehaviour
 {
+    // public GameObject pauseMenu;
     private Animator ar;
     private SpriteRenderer sr;
     private bool grounded = false;
@@ -46,10 +48,36 @@ public class AnimationScript : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && !grounded){
             ar.SetBool("Glide", true);
         }
+
+        // if(Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     Time.timeScale = 0f;
+        //     pauseMenu.SetActive(true);
+        // }
         
     }
 
     public void TakeDamage(){
         ar.SetTrigger("TakeDamage");
     }
+
+    // public void Continue()
+    // {    
+    //     Time.timeScale = 1.0f;
+    //     pauseMenu.SetActive(false);
+    // }
+
+    // public void Quit(){
+    //     Time.timeScale = 1.0f;
+    //     // StartCoroutine(BackMenuCoroutine());
+    //     SceneManager.LoadScene("MainMenu");
+    // }
+
+    // private IEnumerator BackMenuCoroutine()
+    // {
+    //     yield return new WaitForSeconds(.5f);
+
+    //     SceneManager.LoadScene("MainMenu");
+    // }
+
 }
