@@ -1010,7 +1010,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &212684424 stripped
 MonoBehaviour:
@@ -18440,6 +18440,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 5131782462317595389}
   quitMenu: {fileID: 1111738646}
   mainMenu: {fileID: 76504897}
+  creditsMenu: {fileID: 0}
 --- !u!1 &7317006000488581848
 GameObject:
   m_ObjectHideFlags: 0
