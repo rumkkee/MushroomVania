@@ -21,7 +21,7 @@ public class ThrowManager : MonoBehaviour
     {
         mainCamera = Camera.main;
         onCooldown = false;
-        Spore.OnSporeDestroyed += StartCooldown;
+        //Spore.OnSporeDestroyed += StartCooldown;
     }
 
     /// <summary>

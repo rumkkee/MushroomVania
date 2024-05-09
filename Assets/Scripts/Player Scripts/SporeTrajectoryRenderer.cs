@@ -28,7 +28,6 @@ public class SporeTrajectoryRenderer : MonoBehaviour
         Vector3 gravity = new Vector3(0, customGravity, 0);
         float throwForce = throwTest.currentSpore.GetThrowSpeed();
         Vector3 direction = throwTest.direction.normalized;
-        direction = new Vector3(direction.y, -direction.x, 0);
 
         Vector3 launchVelocity = direction * throwForce;
         Vector3 position = Vector3.zero;

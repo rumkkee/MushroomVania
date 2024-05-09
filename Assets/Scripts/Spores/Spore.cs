@@ -4,8 +4,8 @@ using UnityEngine;
 public class Spore : MonoBehaviour
 {
 
-    public delegate void SporeCollided();
-    public static event SporeCollided OnSporeDestroyed;
+    /*public delegate void SporeCollided();
+    public static event SporeCollided OnSporeDestroyed;*/
 
     [Range(0, -10)]
     public float customGravity;
@@ -54,7 +54,7 @@ public class Spore : MonoBehaviour
         yield return new WaitForSeconds(lifeDuration);
         if(this != null)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -71,15 +71,20 @@ public class Spore : MonoBehaviour
 
     protected virtual void SporeCollisionEvents()
     {
-        OnSporeDestroyed();
+        //OnSporeDestroyed();
     }
 
 
-    private void OnDestroy()
+    public virtual void OnDestroy()
     {
         instance = null;
     }
 
     public float GetCustomGravity() => customGravity;
     public float GetThrowSpeed() => throwSpeed;
+
+    public virtual bool CanBeThrown()
+    {
+        return instance == null;
+    }
 }
