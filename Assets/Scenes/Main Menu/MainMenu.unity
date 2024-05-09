@@ -705,7 +705,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 205819117}
-  - {fileID: 1379153399}
   m_Father: {fileID: 76504898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -898,6 +897,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1379153399}
   - {fileID: 1227558317}
   m_Father: {fileID: 118678159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -950,13 +950,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3823322759851773435}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 7282482878182359092}
+        m_TargetAssemblyTypeName: MenuMaster, Assembly-CSharp
+        m_MethodName: Credits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1010,7 +1010,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &212684424 stripped
 MonoBehaviour:
@@ -4889,16 +4889,16 @@ RectTransform:
   m_GameObject: {fileID: 1379153398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.74999994, y: 1, z: 1}
+  m_LocalScale: {x: 0.7499998, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1700534235}
   - {fileID: 1226823946}
-  m_Father: {fileID: 118678159}
+  m_Father: {fileID: 205819117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -74.9}
+  m_AnchoredPosition: {x: 0, y: 31.09999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1379153400
@@ -18440,6 +18440,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 5131782462317595389}
   quitMenu: {fileID: 1111738646}
   mainMenu: {fileID: 76504897}
+  creditsMenu: {fileID: 0}
 --- !u!1 &7317006000488581848
 GameObject:
   m_ObjectHideFlags: 0

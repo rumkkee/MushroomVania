@@ -9,6 +9,7 @@ public class MenuMaster : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject quitMenu;
     public GameObject mainMenu;
+    public GameObject creditsMenu;
     
     //thats a mess but it's just some easy to understand functions to use with buttons
     public void StartGame()
@@ -19,6 +20,10 @@ public class MenuMaster : MonoBehaviour
     public void BackMenu()
     {
         StartCoroutine(BackMenuCoroutine());
+    }
+
+    public void Credits(){
+        StartCoroutine(CreditsCoroutine());
     }
 
 
@@ -86,5 +91,13 @@ public class MenuMaster : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Application.Quit();
+    }
+
+
+    private IEnumerator CreditsCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene("Credits Scene");
     }
 }

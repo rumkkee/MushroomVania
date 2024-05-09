@@ -31,9 +31,6 @@ public class EnemyHealth : MonoBehaviour
     private void OnDefeat()
     {
         SpiderEnemyMovement web = gameObject.GetComponent<SpiderEnemyMovement>();
-        if(Random.Range(1, 6) == 1){
-            Instantiate(healthDrop, transform.position, Quaternion.identity);
-        }
         Destroy(this.gameObject);
     }
 
@@ -53,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
     {
         //This is just a cooldown on the time between swings when previous swing finishes.
         currentHealth -= damageReceived;
+        hitSound.Play();
         if(currentHealth <= 0)
         {
             OnDefeat();
@@ -64,6 +62,12 @@ public class EnemyHealth : MonoBehaviour
         } else {
             secondsForFire = 5;
             onFire = false;
+        }
+    }
+
+    void OnDestroy(){
+        if(Random.Range(1, 6) == 1){
+            Instantiate(healthDrop, transform.position, Quaternion.identity);
         }
     }
 

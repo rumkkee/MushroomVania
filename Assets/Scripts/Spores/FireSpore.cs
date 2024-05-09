@@ -8,6 +8,8 @@ public class FireSpore : Spore
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.isTrigger){return;}
+        if(other.CompareTag("Player")){return;}
         EnemyHealth enemy = other.gameObject.GetComponent<EnemyHealth>();
         if(enemy != null)
         {
@@ -29,7 +31,7 @@ public class FireSpore : Spore
 
         if(other.gameObject.tag == "Vines"){
             Destroy(other.gameObject);
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
