@@ -11,12 +11,14 @@ public class FlyingEnemyMovement : EnemyMovement
     [SerializeField] private float idleSpeed = 2f;
 
     private IEnumerator currentAction;
+    private SpriteRenderer sprite;
 
     public AudioSource flaps;
 
     private void Start()
     {
         ChangeState(IdleRoam());
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -46,6 +48,12 @@ public class FlyingEnemyMovement : EnemyMovement
             float randY = Random.Range(-1f, 1f);
             Vector2 randDirection = new Vector2(randX, randY).normalized;
 
+            if(randX < 0){
+                sprite.flipX = false;
+            } else {
+                sprite.flipX = true;
+            }
+
             float moveDuration = Random.Range(0.5f, 3f);
             float remainingDuration = moveDuration;
             do
@@ -64,6 +72,11 @@ public class FlyingEnemyMovement : EnemyMovement
         {
             Vector2 moveDirection = target.transform.position - transform.position;
             moveDirection = moveDirection.normalized;
+            if(moveDirection.x < 0){
+                sprite.flipX = false;
+            } else {
+                sprite.flipX = true;
+            }
             rb.AddForce(moveDirection * chaseSpeed, ForceMode.Force);
             yield return new WaitForFixedUpdate();
         }

@@ -15,6 +15,7 @@ public class VenomBeam : MonoBehaviour
     public AudioSource venomSpit;
     void Start()
     {
+        bossAttack.VenomBeam += VenomBeamAttack;
         venomBeam.SetActive(false);
         venomBeamIndicator.SetActive(false);
         venomBeam2.SetActive(false);

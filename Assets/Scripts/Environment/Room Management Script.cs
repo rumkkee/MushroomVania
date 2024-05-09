@@ -12,6 +12,7 @@ public class NewBehaviourScript : MonoBehaviour
     private CharacterController playerCont; //player's character controller which will be deactivated then reactivated
     public GameObject mainCam;
     private Camera currentCam;
+    private int currentRoomRespawn;
     
     
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (rooms.Length > 0)
         {
             currentRoom = Instantiate(rooms[0], Vector3.zero, Quaternion.identity); 
+            currentRoomRespawn = 0;
             //this activates the starting room, which should be 0 in the array. 
         }
         else
@@ -42,6 +44,7 @@ public class NewBehaviourScript : MonoBehaviour
             Debug.Log("no room prefabs in the rooms array!");
         }
         
+        PlayerRespawn.onRoomRespawn += RespawnRoom;
        
     }
 
@@ -75,6 +78,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             //instantiate new room, set to current room, set proper player position 
             currentRoom = Instantiate(rooms[roomIndex], Vector3.zero, Quaternion.identity); 
+            currentRoomRespawn = roomIndex;
             Debug.Log("creating room" + roomIndex);
             
             //currentRoom.GetComponent<>(); 
@@ -118,5 +122,11 @@ public class NewBehaviourScript : MonoBehaviour
         return currentRoom;
     }
 
-    
+    public void RespawnRoom(){
+        if(currentRoom != null)
+        {
+            Destroy(currentRoom);
+        }
+        currentRoom = Instantiate(rooms[currentRoomRespawn], Vector3.zero, Quaternion.identity);
+    }    
 }

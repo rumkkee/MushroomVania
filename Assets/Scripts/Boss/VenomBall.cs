@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VenomBall : MonoBehaviour
 {
-    [SerializeField] private float timeBeforeSelfDestruct = 3f;
+    [SerializeField] private float timeBeforeSelfDestruct = 6f;
 
     private void Start()
     {
