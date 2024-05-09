@@ -32,5 +32,4 @@ public class SporeItemUI : MonoBehaviour
         float newValue = sporeItem.maxCharge - sporeItem.currentCharge;
         chargebar.value = newValue;
     }
-
 }

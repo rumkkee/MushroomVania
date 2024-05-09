@@ -29,7 +29,8 @@ public class SporeItem : MonoBehaviour
 
     private void Start()
     {
-        if(currentCharge < maxCharge)
+        TeleportSpore.OnTeleportSporeDestroyed += SetMaxCharge;
+        if (currentCharge < maxCharge)
         {
             Debug.Log("Starting charge from: " + gameObject.name);
             StartCoroutine(CheckCharge());
@@ -74,11 +75,34 @@ public class SporeItem : MonoBehaviour
 
     public void TakeCharge()
     {
-        Debug.Log("Entered Take Charge");
+        //Debug.Log("Entered Take Charge");
         float newCurrentCharge = currentCharge - chargeTakenPerUse;
         currentCharge = (newCurrentCharge > 0) ? newCurrentCharge : 0;
         StopAllCoroutines();
         StartCoroutine(CheckCharge());
+    }
+
+    public void TakeMaxCharge()
+    {
+        currentCharge = 0;
+        StopAllCoroutines();
+    }
+
+    public void SetMaxCharge()
+    {
+        currentCharge = 100;
+    }
+
+    public void HandleCharge()
+    {
+        if(sporePrefab.GetType() == typeof(TeleportSpore))
+        {
+            TakeMaxCharge();
+        }
+        else
+        {
+            TakeCharge();
+        }
     }
 
     public bool CanThrowCurrentSpore()
@@ -92,5 +116,9 @@ public class SporeItem : MonoBehaviour
         {
             return HasSufficientCharge();
         }
+    }
+    private void OnDestroy()
+    {
+        TeleportSpore.OnTeleportSporeDestroyed -= SetMaxCharge;
     }
 }

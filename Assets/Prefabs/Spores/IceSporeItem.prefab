@@ -50,6 +50,6 @@ MonoBehaviour:
   SelectSound: {fileID: 0}
   maxCharge: 100
   currentCharge: 100
-  chargeTakenPerUse: 0
+  chargeTakenPerUse: 100
   chargeDelay: 0
   rechargeRatePerSec: 0

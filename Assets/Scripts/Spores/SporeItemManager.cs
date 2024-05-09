@@ -27,6 +27,6 @@ public class SporeItemManager : MonoBehaviour
 
     public void PayCharge()
     {
-        SporeSelect.instance.mainSpore.TakeCharge();
+        SporeSelect.instance.mainSpore.HandleCharge();
     }
 }

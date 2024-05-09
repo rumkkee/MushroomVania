@@ -54,7 +54,7 @@ public class Spore : MonoBehaviour
         yield return new WaitForSeconds(lifeDuration);
         if(this != null)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -75,7 +75,7 @@ public class Spore : MonoBehaviour
     }
 
 
-    private void OnDestroy()
+    public virtual void OnDestroy()
     {
         instance = null;
     }
