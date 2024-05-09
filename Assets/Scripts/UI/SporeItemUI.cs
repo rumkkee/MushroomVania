@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SporeItemUI : MonoBehaviour
 {
     [SerializeField] private Slider chargebar;
+    public Image fill;
     public Image sliderImageSlot;
     [SerializeField] private SporeItem sporeItem;
 

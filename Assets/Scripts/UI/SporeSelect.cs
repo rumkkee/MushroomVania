@@ -10,6 +10,7 @@ public class SporeSelect : MonoBehaviour
     SporeItem rightSpore;
     private ThrowTest throwTest;
     bool isSwitching = false;
+    [Space]
 
     public SporeItemUI mainSporeItemUI;
     public SporeItemUI leftSporeItemUI;
@@ -36,8 +37,9 @@ public class SporeSelect : MonoBehaviour
     {
         throwTest = FindObjectOfType<ThrowTest>();
         SetSpores();
-        mainSporeIndex = 0;
+        mainSporeIndex = 0;  
         UpdateUI();
+        UpdateEnabledSporeSprites();
     }
 
     void Update()
@@ -65,7 +67,9 @@ public class SporeSelect : MonoBehaviour
 
     private void SetSpores()
     {
-        if(sporesList.Count == 0)
+        leftSpore = null;
+        rightSpore = null;
+        if (sporesList.Count == 0)
             return;
 
         if(sporesList.Count == 1)
@@ -99,6 +103,7 @@ public class SporeSelect : MonoBehaviour
         sporesList.Add(spore);
         UpdateSpores();
         UpdateUI();
+        UpdateEnabledSporeSprites();
     }
 
     private void LeftSwap()
@@ -172,39 +177,21 @@ public class SporeSelect : MonoBehaviour
         if (sporesList.Count == 0)
         {
             SetSlotValues(false, false, false);
-            /*mainSporeSlot.enabled = false;
-            leftSporeSlot.enabled = false;
-            rightSporeSlot.enabled = false;*/
         }
         else if (sporesList.Count == 1)
         {
             SetSlotValues(false, true, false);
             SetSporeSprites();
-            //mainSporeSlot.enabled = true;
-            //mainSporeSlot.sprite = mainSpore.sporeSprite;
-            /*leftSporeSlot.enabled = false;
-            rightSporeSlot.enabled = false;*/
         }
         else if (sporesList.Count == 2)
         {
             SetSlotValues(true, true, false);
             SetSporeSprites();
-            /*mainSporeSlot.enabled = true;
-            leftSporeSlot.enabled = true;*/
-            /*mainSporeSlot.sprite = mainSpore.sporeSprite;
-            leftSporeSlot.sprite = leftSpore.sporeSprite;*/
-            /*rightSporeSlot.enabled = false;*/
         }
         else
         {
             SetSlotValues(true, true, true);
             SetSporeSprites();
-            /*mainSporeSlot.enabled = true;
-            leftSporeSlot.enabled = true;
-            rightSporeSlot.enabled = true;*/
-            /*mainSporeSlot.sprite = mainSpore.sporeSprite;
-            leftSporeSlot.sprite = leftSpore.sporeSprite;
-            rightSporeSlot.sprite = rightSpore.sporeSprite;*/
         }
     }
 
@@ -218,26 +205,46 @@ public class SporeSelect : MonoBehaviour
     private void SetSporeSprites()
     {
         if(leftSpore != null)
-        leftSporeItemUI.sliderImageSlot.sprite = leftSpore.sporeSprite;
+            leftSporeItemUI.sliderImageSlot.sprite = leftSpore.sporeSprite;
+    
         if(mainSpore != null)
-        mainSporeItemUI.sliderImageSlot.sprite = mainSpore.sporeSprite;
+            mainSporeItemUI.sliderImageSlot.sprite = mainSpore.sporeSprite;
+        
         if(rightSpore != null)
-        rightSporeItemUI.sliderImageSlot.sprite = rightSpore.sporeSprite;
+            rightSporeItemUI.sliderImageSlot.sprite = rightSpore.sporeSprite;
+        UpdateEnabledSporeSprites();
+    }
 
+    private void UpdateEnabledSporeSprites()
+    {
+        Debug.Log("Updating Spore UI object activeness");
+        //leftSporeItemUI.gameObject.SetActive((leftSpore != null) ? true : false);
+        Debug.Log("Is left spore Present?: " + leftSpore != null);
+        leftSporeItemUI.fill.gameObject.SetActive((leftSpore != null) ? true : false);
+
+        //mainSporeItemUI.gameObject.SetActive((mainSpore != null) ? true : false);
+        mainSporeItemUI.fill.gameObject.SetActive((mainSpore != null) ? true : false);
+        //rightSporeItemUI.gameObject.SetActive((rightSpore != null) ? true : false);
+        rightSporeItemUI.fill.gameObject.SetActive((rightSpore != null) ? true : false);
     }
 
     private void UpdateSpores()
     {
         if (mainSporeIndex >= sporesList.Count)
             mainSporeIndex = 0;
-
-        if (sporesList.Count == 2)
+        if(sporesList.Count == 1)
+        {
+            rightSpore = null;
+            mainSpore = sporesList[mainSporeIndex];
+            leftSpore = null;
+        }
+        else if (sporesList.Count == 2)
         {
             rightSpore = null;
             mainSpore = sporesList[mainSporeIndex];
             leftSpore = sporesList[(mainSporeIndex - 1 + sporesList.Count) % sporesList.Count];
         }
-        else
+        else if(sporesList.Count == 3)
         {
             mainSpore = sporesList[mainSporeIndex];
             rightSpore = sporesList[(mainSporeIndex + 1) % sporesList.Count];
