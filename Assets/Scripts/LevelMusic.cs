@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class LevelMusic : MonoBehaviour
@@ -28,7 +29,12 @@ public class LevelMusic : MonoBehaviour
             {
                 levelMusic.Stop();
             }
-            bossMusic.Play();
+
+            if (!bossMusic.isPlaying)
+            {
+                bossMusic.Play();
+            }
+            
         }
         else
         {
