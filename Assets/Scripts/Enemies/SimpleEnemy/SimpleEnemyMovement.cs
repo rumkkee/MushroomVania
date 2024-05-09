@@ -9,6 +9,7 @@ public class SimpleEnemyMovement : EnemyMovement
     private Rigidbody rb;
     private bool turn = false;
     private SpriteRenderer spider;
+    public AudioSource walk;
     void Start(){
         spider = GetComponent<SpriteRenderer>();
         spider.flipX = !turn;
@@ -21,6 +22,10 @@ public class SimpleEnemyMovement : EnemyMovement
     void Update()
     {
         transform.position += new Vector3(moveDirection.x, 0, 0) * speed * Time.deltaTime; //Sends enemies in a direction
+        if (!walk.isPlaying)
+        {
+            walk.Play();
+        }
     }
 
     void OnCollisionEnter(Collision collision)

@@ -20,6 +20,9 @@ public class SpiderEnemyMovement : EnemyMovement
     private Vector2 webDirection;
     private SpriteRenderer spider;
 
+    public AudioSource walkSound;
+    public AudioSource webShoot;
+
     void Start(){
         spider = GetComponent<SpriteRenderer>();
         int rand = Random.Range(1, 3);
@@ -41,6 +44,12 @@ public class SpiderEnemyMovement : EnemyMovement
         }
         if(canShoot && !isWebbing){
             Shoot();
+            webShoot.Play();
+        }
+
+        if (!walkSound.isPlaying)
+        {
+            walkSound.Play();
         }
     }
 

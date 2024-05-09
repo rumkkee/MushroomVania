@@ -36,6 +36,11 @@ public class Movement : MonoBehaviour
     public float wallJumpMultiplier = 1f;
     //wallJumpDistance should stay positive
     public float wallJumpDistance = 5.0f;
+    
+    //PlayerSounds audio sources
+    public AudioSource walk;
+    public AudioSource jump;
+    public AudioSource dash;
 
     void Start()
     {
@@ -141,6 +146,7 @@ public class Movement : MonoBehaviour
             dashCD = dashCooldown;
             dashDirection = (Vector2.right * moveX) / Mathf.Abs(moveX);
             dashedInAir = true;
+            dash.Play();
         }
         if (isDashing && dashCD >= dashCooldown - dashDuration)
         {
@@ -166,6 +172,18 @@ public class Movement : MonoBehaviour
         {
             jumpBufferCD -= Time.deltaTime;
         }
+
+        if (Input.GetAxis("Horizontal") != 0f)
+        {
+            if (!walk.isPlaying)
+            {
+                walk.Play();
+            }
+        }
+        else
+        {
+            walk.Stop();
+        }
     }
     
     public void OnCeilingCollision()
@@ -186,6 +204,7 @@ public class Movement : MonoBehaviour
         // Apply jump forces
         moveY = Mathf.Sqrt(jumpHeight * -2f * gravity);
         moveX = finalJumpDirection.x * Mathf.Sqrt(jumpHeight * wallJumpMultiplier * gravity);
+        jump.Play();
     }
 
     private void Teleport(Vector3 targetPosition)
