@@ -77,6 +77,11 @@ public class DamageFromEnemy : MonoBehaviour
             PlayerTakeDamage.Invoke();
             StartCoroutine(DamageImmunity());
         }
+
+        if(other.gameObject.tag == "Beam" && !immunity){
+            PlayerTakeDamage.Invoke();
+            StartCoroutine(DamageImmunity());
+        }
     }
 
     private IEnumerator DamageImmunity()

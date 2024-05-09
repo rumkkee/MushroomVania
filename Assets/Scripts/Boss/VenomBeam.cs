@@ -22,6 +22,10 @@ public class VenomBeam : MonoBehaviour
         venomBeamIndicator3.SetActive(false);
     }
 
+    void OnDestroy(){
+        bossAttack.VenomBeam -= VenomBeamAttack;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.V))

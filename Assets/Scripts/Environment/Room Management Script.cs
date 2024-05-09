@@ -121,5 +121,6 @@ public class NewBehaviourScript : MonoBehaviour
             Destroy(currentRoom);
         }
         currentRoom = Instantiate(rooms[currentRoomRespawn], Vector3.zero, Quaternion.identity);
+        // currentRoom = rooms[currentRoomRespawn];
     }    
 }

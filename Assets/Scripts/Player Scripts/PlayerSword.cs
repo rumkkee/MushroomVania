@@ -19,5 +19,11 @@ public class PlayerSword : MonoBehaviour
             EnemyMovement enemyMovement = other.gameObject.GetComponent<EnemyMovement>();
             enemyMovement?.TakeKnockback(knockbackDirection);
         }
+
+        BossHealth boss = other.gameObject.GetComponent<BossHealth>();
+        if(boss != null)
+        {
+            boss.TakeDamage(damage);
+        }
     }
 }

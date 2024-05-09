@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7144096357326318916}
   - component: {fileID: 3052669538139343051}
   - component: {fileID: 2989662318246973615}
+  - component: {fileID: 5437718538596625384}
   m_Layer: 0
   m_Name: EnemyGroundRight
   m_TagString: Enemy
@@ -67,6 +68,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4103615894898761155}
+--- !u!54 &5437718538596625384
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995179880137801443}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &2157341525325155338
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   healthDrop: {fileID: 7234289283504010454, guid: 1dea8146c0e91ef459eee189e128a8fc, type: 3}
 --- !u!114 &4103615894898761155
 MonoBehaviour:
@@ -362,6 +391,7 @@ GameObject:
   - component: {fileID: 2111453059478014085}
   - component: {fileID: 7401949021288812533}
   - component: {fileID: 2150915598352951305}
+  - component: {fileID: 2611118659683874067}
   m_Layer: 0
   m_Name: EnemyGroundLeft
   m_TagString: Enemy
@@ -418,6 +448,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4103615894898761155}
+--- !u!54 &2611118659683874067
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830641844144193094}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &8081921454094977195
 GameObject:
   m_ObjectHideFlags: 0

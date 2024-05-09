@@ -14,8 +14,8 @@ public class FlyingEnemyMovement : EnemyMovement
 
     private void Start()
     {
-        ChangeState(IdleRoam());
         sprite = GetComponent<SpriteRenderer>();
+        ChangeState(IdleRoam());
     }
 
     public void ChangeState(IEnumerator enumerator)
@@ -37,7 +37,7 @@ public class FlyingEnemyMovement : EnemyMovement
             float randY = Random.Range(-1f, 1f);
             Vector2 randDirection = new Vector2(randX, randY).normalized;
 
-            if(randX < 0){
+            if(randDirection.x < 0){
                 sprite.flipX = false;
             } else {
                 sprite.flipX = true;

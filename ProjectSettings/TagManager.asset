@@ -11,6 +11,8 @@ TagManager:
   - FrogTongue
   - Vines
   - Webs
+  - Beam
+  - Boss
   layers:
   - Default
   - TransparentFX

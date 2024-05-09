@@ -5,10 +5,15 @@ using UnityEngine;
 public class SpiderSpawn : MonoBehaviour
 {
     public GameObject spiderPrefab;
+    public GameObject roomPrefab;
 
     private void Start()
     {
         bossAttack.SpiderBall += Attack;
+    }
+
+    void OnDestroy(){
+        bossAttack.SpiderBall -= Attack;
     }
 
     public void Attack()
@@ -18,6 +23,7 @@ public class SpiderSpawn : MonoBehaviour
     }
 
     public void SpawnSpider(){
-        Instantiate(spiderPrefab, transform.position, Quaternion.identity);
+        GameObject spider = Instantiate(spiderPrefab, transform.position, Quaternion.identity);
+        spider.transform.SetParent(roomPrefab.transform);
     }
 }

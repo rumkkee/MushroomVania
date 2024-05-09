@@ -37,6 +37,7 @@ public class ThrowTest : MonoBehaviour
     private void Start()
     {
         sporeTrajectoryRenderer.enabled = false;
+        currentSpore = cordycepsSporePrefab;
     }
 
     void Update()

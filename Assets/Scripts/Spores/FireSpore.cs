@@ -20,6 +20,12 @@ public class FireSpore : Spore
             enemyMovement?.TakeKnockback(knockbackDirection);
         }
 
+        BossHealth boss = other.gameObject.GetComponent<BossHealth>();
+        if(boss != null)
+        {
+            boss.TakeFireDamage(damage);
+        }
+
 
         if(other.gameObject.tag == "Vines"){
             Destroy(other.gameObject);

@@ -12,6 +12,10 @@ public class VenomAttackManager : MonoBehaviour
         bossAttack.SpiderBall += Attack;
     }
 
+    void OnDestroy(){
+        bossAttack.SpiderBall -= Attack;
+    }
+
     public void Attack()
     {
         time = 3;
