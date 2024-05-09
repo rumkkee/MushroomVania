@@ -478,7 +478,7 @@ MonoBehaviour:
   chargebar: {fileID: 3294669404900172822}
   fill: {fileID: 3105292318331662870}
   sliderImageSlot: {fileID: 7443747657544902454}
-  sporeItem: {fileID: 0}
+  sporeItem: {fileID: 3404936327840150887}
 --- !u!1 &2968813424674668205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6c33fea96540b48a1189e87dd5e92b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireSporeItem: {fileID: 1887947860662420724}
+  cordycepsSporeItem: {fileID: 3404936327840150887}
+  telesporeItem: {fileID: 2717858057398012779}
 --- !u!1 &8062830075516509497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1494,7 @@ MonoBehaviour:
   mainSporeItemUI: {fileID: 5746380595331894904}
   leftSporeItemUI: {fileID: 8320746615978378724}
   rightSporeItemUI: {fileID: 6329004096997369883}
+  sporeItemFolder: {fileID: 7895487139434833270}
   sporesList:
   - {fileID: 3404936327840150887}
   animator: {fileID: 4961562909784856634}
@@ -1572,6 +1576,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5405109077534043659, guid: 5383a29ce2f64a849a8e82382e6e85ae, type: 3}
     - target: {fileID: 1988315706807273614, guid: f5f82bd537394b043ace754fca7c6807, type: 3}
+      propertyPath: currentCharge
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988315706807273614, guid: f5f82bd537394b043ace754fca7c6807, type: 3}
       propertyPath: rechargeRatePerSec
       value: 40
       objectReference: {fileID: 0}
@@ -1589,6 +1597,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 15658805974013500, guid: f5f82bd537394b043ace754fca7c6807, type: 3}
   m_PrefabInstance: {fileID: 118426242841955450}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1887947860662420724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1988315706807273614, guid: f5f82bd537394b043ace754fca7c6807, type: 3}
+  m_PrefabInstance: {fileID: 118426242841955450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c66a2a75b222904da538ed03d4e0e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3807557180172795369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1641,6 +1660,10 @@ PrefabInstance:
       propertyPath: sporePrefab
       value: 
       objectReference: {fileID: 4104357072703201290, guid: b8dd7e2399295cd41bedd470d3442ebb, type: 3}
+    - target: {fileID: 1988315706807273614, guid: a70297750074dfb418853548d789c9e9, type: 3}
+      propertyPath: currentCharge
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7891780816232665862, guid: a70297750074dfb418853548d789c9e9, type: 3}
       propertyPath: m_Name
       value: NormalSporeItem
@@ -1727,6 +1750,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28f6466bd79a5fb43ab4a8eff334171a, type: 3}
+--- !u!114 &2717858057398012779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1988315706807273614, guid: 28f6466bd79a5fb43ab4a8eff334171a, type: 3}
+  m_PrefabInstance: {fileID: 4476629814307423205}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c66a2a75b222904da538ed03d4e0e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4474201438696216025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 15658805974013500, guid: 28f6466bd79a5fb43ab4a8eff334171a, type: 3}
