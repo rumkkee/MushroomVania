@@ -5,15 +5,19 @@ using UnityEngine;
 
 public class AnimationScript : MonoBehaviour
 {
-    // public GameObject pauseMenu;
+    public GameObject pauseMenu;
+    public GameObject player;
     private Animator ar;
     private SpriteRenderer sr;
+    private CharacterController playerController;
+    private bool isPaused = false;
     private bool grounded = false;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         ar = GetComponent<Animator>();
+        playerController = GetComponent<CharacterController>();
         DamageFromEnemy.PlayerTakeDamage += TakeDamage;
     }
 
@@ -49,11 +53,18 @@ public class AnimationScript : MonoBehaviour
             ar.SetBool("Glide", true);
         }
 
-        // if(Input.GetKeyDown(KeyCode.Escape))
-        // {
-        //     Time.timeScale = 0f;
-        //     pauseMenu.SetActive(true);
-        // }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            playerController.enabled = false;
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(!isPaused);
+            isPaused = !isPaused;
+            if (!isPaused)
+            {
+                Time.timeScale = 1.0f;
+                playerController.enabled = true;
+            }  
+        }
         
     }
 
@@ -61,17 +72,18 @@ public class AnimationScript : MonoBehaviour
         ar.SetTrigger("TakeDamage");
     }
 
-    // public void Continue()
-    // {    
-    //     Time.timeScale = 1.0f;
-    //     pauseMenu.SetActive(false);
-    // }
+    public void Continue()
+    {    
+        Time.timeScale = 1.0f;
+        pauseMenu.SetActive(false);
+        playerController.enabled = true;
+    }
 
-    // public void Quit(){
-    //     Time.timeScale = 1.0f;
-    //     // StartCoroutine(BackMenuCoroutine());
-    //     SceneManager.LoadScene("MainMenu");
-    // }
+    public void Quit(){
+         Time.timeScale = 1.0f;
+          //StartCoroutine(BackMenuCoroutine());
+         SceneManager.LoadScene("MainMenu");
+    }
 
     // private IEnumerator BackMenuCoroutine()
     // {
