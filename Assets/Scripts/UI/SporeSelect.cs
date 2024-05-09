@@ -16,6 +16,8 @@ public class SporeSelect : MonoBehaviour
     public SporeItemUI leftSporeItemUI;
     public SporeItemUI rightSporeItemUI;
 
+    public GameObject sporeItemFolder;
+
     int mainSporeIndex = 0;
 
     public List<SporeItem> sporesList = new List<SporeItem>();
@@ -100,7 +102,19 @@ public class SporeSelect : MonoBehaviour
 
     public void AddNewSpore(SporeItem spore)
     {
-        sporesList.Add(spore);
+        switch (spore.sporeType)
+        {
+            case SporeType.Teleport:
+                sporesList.Add(SporeItemManager.instance.GetTelesporeItem());
+                break;
+            case SporeType.Fire:
+                sporesList.Add(SporeItemManager.instance.GetFireSporeItem());
+                break;
+            case SporeType.Cordyceps:
+                sporesList.Add(SporeItemManager.instance.GetCordycepsSporeItem());
+                break;
+        }
+
         UpdateSpores();
         UpdateUI();
         UpdateEnabledSporeSprites();

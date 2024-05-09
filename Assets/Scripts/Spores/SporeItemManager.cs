@@ -5,7 +5,9 @@ using UnityEngine;
 public class SporeItemManager : MonoBehaviour
 {
     public static SporeItemManager instance;
-
+    public SporeItem fireSporeItem;
+    public SporeItem cordycepsSporeItem;
+    public SporeItem telesporeItem;
     private void Awake()
     {
         if(instance == null)
@@ -13,6 +15,10 @@ public class SporeItemManager : MonoBehaviour
             instance = this;
         }
     }
+
+    public SporeItem GetFireSporeItem() => fireSporeItem;
+    public SporeItem GetCordycepsSporeItem() => cordycepsSporeItem;
+    public SporeItem GetTelesporeItem() => telesporeItem;
 
     public bool CanThrow()
     {
