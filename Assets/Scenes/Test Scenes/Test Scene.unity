@@ -131,6 +131,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 585729278775099860, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585729278775099860, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585729278775099860, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2739347012845057381, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
       propertyPath: m_Name
       value: Canvas Spores
@@ -215,6 +227,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6329004096997369883, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
+      propertyPath: sporeItem
+      value: 
+      objectReference: {fileID: 712481581}
+    - target: {fileID: 8320746615978378724, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
+      propertyPath: sporeItem
+      value: 
+      objectReference: {fileID: 712481581}
+    - target: {fileID: 8679484668022479062, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
+      propertyPath: mainSpore
+      value: 
+      objectReference: {fileID: 712481581}
     - target: {fileID: 8679484668022479062, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
       propertyPath: sporesList.Array.size
       value: 1
@@ -222,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 8679484668022479062, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
       propertyPath: sporesList.Array.data[0]
       value: 
-      objectReference: {fileID: 1988315706807273614, guid: a70297750074dfb418853548d789c9e9, type: 3}
+      objectReference: {fileID: 712481581}
     - target: {fileID: 8679484668022479062, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
       propertyPath: sporesList.Array.data[1]
       value: 
@@ -297,6 +321,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54c13952a10f8684a8ec3f700eadd586, type: 3}
+--- !u!114 &712481581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3404936327840150887, guid: ca6ca03f17dcda74c9d4c663d6be2d31, type: 3}
+  m_PrefabInstance: {fileID: 89859158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c66a2a75b222904da538ed03d4e0e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1105492831
 GameObject:
   m_ObjectHideFlags: 0
