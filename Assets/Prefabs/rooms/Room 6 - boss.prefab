@@ -585,6 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   venomBallPrefab: {fileID: 1488212979679957582, guid: c52c9ff545458224b8c6405ae0d9d5c3, type: 3}
   venomThrowSpeed: 10
+  roomPrefab: {fileID: 556645253770247148}
 --- !u!1 &1147499395223932013
 GameObject:
   m_ObjectHideFlags: 0

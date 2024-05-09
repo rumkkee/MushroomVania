@@ -6,6 +6,7 @@ public class VenomAttackManager : MonoBehaviour
     [SerializeField] private VenomBall venomBallPrefab;
     [SerializeField] private float venomThrowSpeed = 3f;
     private int time = 3;
+    public GameObject roomPrefab;
 
     void Start()
     {
@@ -47,6 +48,7 @@ public class VenomAttackManager : MonoBehaviour
                 Vector3 rotatedVector = Quaternion.AngleAxis(rotationDegrees * i, rotationAxis) * throwDirection;
                 venomBall = Instantiate(venomBallPrefab, transform.position, Quaternion.identity);
                 venomBall.SetVelocity(rotatedVector * venomThrowSpeed);
+                venomBall.transform.SetParent(roomPrefab.transform);
             }
             rotationDegrees = -rotationDegrees;
         }

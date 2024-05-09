@@ -18,8 +18,10 @@ public class SpiderEnemyMovement : EnemyMovement
     private bool isWebbing = false;
     private GameObject webbing;
     private Vector2 webDirection;
+    private SpriteRenderer spider;
 
     void Start(){
+        spider = GetComponent<SpriteRenderer>();
         int rand = Random.Range(1, 3);
         if(rand == 1){
             Turn();
@@ -28,6 +30,11 @@ public class SpiderEnemyMovement : EnemyMovement
     
     void Update()
     {
+        if(moveDirection.x < 0){
+            spider.flipX = false;
+        } else {
+            spider.flipX = true;
+        }
         transform.position += new Vector3(moveDirection.x, 0, 0) * speed * Time.deltaTime; //Sends enemies in a direction
         if(webbing != null){
             webbing.transform.position += new Vector3(webDirection.x, 0, 0) * webSpeed * Time.deltaTime;
@@ -54,6 +61,8 @@ public class SpiderEnemyMovement : EnemyMovement
 
     public void Turn()
     {
+        spider.flipX = turn;
+        turn = !turn;
         startRotation += 180;
         webShooterRotate.transform.eulerAngles = new Vector3(0, 0, startRotation);
         turn = !turn;
