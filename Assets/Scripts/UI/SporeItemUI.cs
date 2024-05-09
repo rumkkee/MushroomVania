@@ -9,6 +9,9 @@ public class SporeItemUI : MonoBehaviour
     public Image sliderImageSlot;
     [SerializeField] private SporeItem sporeItem;
 
+    private Color white = Color.white;
+    private Color grey = new Color(0.7f, 0.7f, 1f);
+
     private void Start()
     {
         // Have sporeItem be assigned on Awake from the SporeUIManager
@@ -20,6 +23,7 @@ public class SporeItemUI : MonoBehaviour
     private void Update()
     {
         SetCharge();
+        SetColor();
     }
 
     public void SetSporeItem(SporeItem spore)
@@ -31,5 +35,17 @@ public class SporeItemUI : MonoBehaviour
     {
         float newValue = sporeItem.maxCharge - sporeItem.currentCharge;
         chargebar.value = newValue;
+    }
+
+    public void SetColor()
+    {
+        if(sporeItem.currentCharge >= sporeItem.chargeTakenPerUse)
+        {
+            sliderImageSlot.color = white;
+        }
+        else
+        {
+            sliderImageSlot.color = grey;
+        }
     }
 }

@@ -51,5 +51,5 @@ MonoBehaviour:
   maxCharge: 100
   currentCharge: 100
   chargeTakenPerUse: 50
-  chargeDelay: 3
+  chargeDelay: 1
   rechargeRatePerSec: 10
