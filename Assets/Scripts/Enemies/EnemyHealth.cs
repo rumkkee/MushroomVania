@@ -53,6 +53,7 @@ public class EnemyHealth : MonoBehaviour
     {
         //This is just a cooldown on the time between swings when previous swing finishes.
         currentHealth -= damageReceived;
+        hitSound.Play();
         if(currentHealth <= 0)
         {
             OnDefeat();

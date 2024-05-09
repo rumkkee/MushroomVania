@@ -780,7 +780,7 @@ MonoBehaviour:
   teleportSporePrefab: {fileID: 6170800030019777992, guid: 44ea2f715974683488559ab2d6410186, type: 3}
   fireSporePrefab: {fileID: -5405109077534043659, guid: 5383a29ce2f64a849a8e82382e6e85ae, type: 3}
   cordycepsSporePrefab: {fileID: 4104357072703201290, guid: b8dd7e2399295cd41bedd470d3442ebb, type: 3}
-  currentSpore: {fileID: 0}
+  currentSpore: {fileID: 4104357072703201290, guid: b8dd7e2399295cd41bedd470d3442ebb, type: 3}
   sporeTrajectoryRenderer: {fileID: 8630273944246131130}
   direction: {x: 0, y: 0, z: 0}
   throwForce: 0

@@ -13,6 +13,9 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject mainCam;
     private Camera currentCam;
     private int currentRoomRespawn;
+
+    public delegate void newRoom(Vector3 position);
+    public static event newRoom newRoomRespawn; 
     
     
     // Start is called before the first frame update
@@ -101,6 +104,7 @@ public class NewBehaviourScript : MonoBehaviour
             Vector3 playerSpawnPosition = destinationObject.transform.position; //same position as destination object
             player.transform.position = playerSpawnPosition; 
             Debug.Log("spawning player at " + playerSpawnPosition);
+            newRoomRespawn.Invoke(playerSpawnPosition);
             playerCont.enabled = true; //reenable 
         }
         else

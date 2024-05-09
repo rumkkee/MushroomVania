@@ -11,6 +11,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         Checkpoint.PlayerCheckpoint += RecentCheckpoint;
         LivesManagement.onRespawn += Respawn;
+        NewBehaviourScript.newRoomRespawn += RecentCheckpoint;
     }
 
     public void RecentCheckpoint(Vector3 checkpoint)
