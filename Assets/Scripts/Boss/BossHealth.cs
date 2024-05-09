@@ -9,6 +9,8 @@ public class BossHealth : MonoBehaviour
     private int secondsForFire = 5;
     private bool onFire = false;
 
+    public AudioSource hitSound;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -18,6 +20,7 @@ public class BossHealth : MonoBehaviour
     {
         Debug.Log("enemy hit");
         currentHealth -= damageReceived;
+        hitSound.Play();
         if (currentHealth <= 0)
         {
             OnDefeat();
@@ -47,6 +50,7 @@ public class BossHealth : MonoBehaviour
     {
         //This is just a cooldown on the time between swings when previous swing finishes.
         currentHealth -= damageReceived;
+        hitSound.Play();
         if (currentHealth <= 0)
         {
             OnDefeat();

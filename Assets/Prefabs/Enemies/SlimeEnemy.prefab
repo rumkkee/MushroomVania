@@ -170,7 +170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 75
+  currentHealth: 0
   healthDrop: {fileID: 7234289283504010454, guid: 1dea8146c0e91ef459eee189e128a8fc, type: 3}
+  hitSound: {fileID: 0}
 --- !u!65 &9192851994980357131
 BoxCollider:
   m_ObjectHideFlags: 0
