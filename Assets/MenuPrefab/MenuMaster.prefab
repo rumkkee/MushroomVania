@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6036275379974974112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5388018169681184982}
+  - component: {fileID: 994979584979977882}
+  - component: {fileID: 5434978930614053129}
+  - component: {fileID: 5929797149696596050}
+  - component: {fileID: 3886236343510563592}
+  m_Layer: 0
+  m_Name: MenuMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5388018169681184982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036275379974974112}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 449.82385, y: 239.72128, z: 140.82039}
+  m_LocalScale: {x: 1.1428571, y: 1.1428571, z: 1.1428571}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &994979584979977882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036275379974974112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9449580f60624c44ebbf631fdb679457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 0}
+  brightnessSlider: {fileID: 0}
+  blackoutImage: {fileID: 0}
+  brightnessText: {fileID: 0}
+  minBrightness: 0.1
+  mainSettings: {fileID: 0}
+  keyboardMenu: {fileID: 0}
+--- !u!114 &5434978930614053129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036275379974974112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db2fa9fdaad459499995945b25f42be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMixer: {fileID: 24100000, guid: d970e2973a1ad8d449a0dc6be7212acd, type: 2}
+  musicMixer: {fileID: 24100000, guid: 3b49c5624064e074e99680f85c39f6d3, type: 2}
+  ambientMixer: {fileID: 24100000, guid: 83b48ef8af7b05e4bb548742e320bbe7, type: 2}
+  mainVolumeSlider: {fileID: 0}
+  musicVolumeSlider: {fileID: 0}
+  ambientVolumeSlider: {fileID: 0}
+  mainVolumeText: {fileID: 0}
+  musicVolumeText: {fileID: 0}
+  ambientVolumeText: {fileID: 0}
+--- !u!114 &5929797149696596050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036275379974974112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7436111597f5b248a7562dc5713fbb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsText: {fileID: 0}
+  cpuUsageText: {fileID: 0}
+  memoryUsageText: {fileID: 0}
+--- !u!114 &3886236343510563592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036275379974974112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aafa6608e4c900648855d22ad99a48d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsMenu: {fileID: 0}
+  quitMenu: {fileID: 0}
+  mainMenu: {fileID: 0}
