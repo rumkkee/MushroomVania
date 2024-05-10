@@ -37090,7 +37090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3000
   currentHealth: 0
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 239828944279167978}
 --- !u!82 &239828944279167978
 AudioSource:
   m_ObjectHideFlags: 0

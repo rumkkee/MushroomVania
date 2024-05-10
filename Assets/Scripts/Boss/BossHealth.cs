@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 500;
     public int currentHealth;
+    
     private int secondsForFire = 5;
     private bool onFire = false;
 
@@ -23,13 +25,15 @@ public class BossHealth : MonoBehaviour
         hitSound.Play();
         if (currentHealth <= 0)
         {
-            OnDefeat();
+            StartCoroutine(OnDefeat());
         }
     }
 
-    private void OnDefeat()
+    IEnumerator OnDefeat()
     {
         Destroy(this.gameObject);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("Credits Scene");
     }
 
     public void TakeFireDamage(int damageReceived)
