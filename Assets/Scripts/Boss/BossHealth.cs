@@ -57,7 +57,7 @@ public class BossHealth : MonoBehaviour
         hitSound.Play();
         if (currentHealth <= 0)
         {
-            OnDefeat();
+            StartCoroutine(OnDefeat());
         }
         yield return new WaitForSeconds(1);
         if (secondsForFire > 0)

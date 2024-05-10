@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="095bc295-a448-4c05-b5a4-46a2dae06a0a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MushroomVania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Pause Menu Colton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Pause Menu Colton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Trajan Pro Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Trajan Pro Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 1 - movement basics.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 1 - movement basics.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 3 - wall jump.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 3 - wall jump.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 4 - Spores.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 4 - Spores.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 6 - boss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/rooms/Room 6 - boss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AnimationScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Test Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scenes/Test Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Boss/BossHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Boss/BossHealth.cs" afterDir="false" />
     </list>

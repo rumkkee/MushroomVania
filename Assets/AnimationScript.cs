@@ -6,7 +6,6 @@ using UnityEngine;
 public class AnimationScript : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public GameObject player;
     private Animator ar;
     private SpriteRenderer sr;
     private CharacterController playerController;
@@ -17,7 +16,6 @@ public class AnimationScript : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         ar = GetComponent<Animator>();
-        playerController = GetComponent<CharacterController>();
         DamageFromEnemy.PlayerTakeDamage += TakeDamage;
     }
 
@@ -55,14 +53,12 @@ public class AnimationScript : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            playerController.enabled = false;
             Time.timeScale = 0f;
             pauseMenu.SetActive(!isPaused);
             isPaused = !isPaused;
             if (!isPaused)
             {
                 Time.timeScale = 1.0f;
-                playerController.enabled = true;
             }  
         }
         
@@ -76,7 +72,6 @@ public class AnimationScript : MonoBehaviour
     {    
         Time.timeScale = 1.0f;
         pauseMenu.SetActive(false);
-        playerController.enabled = true;
     }
 
     public void Quit(){
